@@ -1,4 +1,4 @@
-TARGETS = $(BDFS) $(TTFS) $(WEB_TTFS)
+TARGETS = $(BDFS) $(TTFS) $(WEBSITE_TTFS)
 
 DEPS       = src/la120.chars.txt \
              src/la100.chars.txt
@@ -11,7 +11,7 @@ SRC_FONTS  = \
              src/la100-16point5cpi.font.txt
 BDFS       = $(patsubst src/%.font.txt,dist/bdf/%.bdf,$(SRC_FONTS))
 TTFS       = $(patsubst src/%.font.txt,dist/ttf/%.ttf,$(SRC_FONTS))
-WEB_TTFS   = $(patsubst src/%.font.txt,web/ttf/%.ttf,$(SRC_FONTS))
+WEBSITE_TTFS = $(patsubst src/%.font.txt,docs/ttf/%.ttf,$(SRC_FONTS))
 
 # BDFBDF                 = ~/git/dse.d/perl-font-bitmap/bin/bdfbdf
 BDFBDF                 = ~/git/dse.d/perl-font-bdf/bin/bdf2bdf
@@ -20,7 +20,7 @@ BITMAPFONT2TTF         = bitmapfont2ttf
 BITMAPFONT2TTF_OPTIONS = --dot-width 1 --dot-height 1 --circular-dots
 
 default: $(TARGETS)
-web: $(WEB_TTFS)
+website: $(WEBSITE_TTFS)
 
 debug:
 	BITMAPFONT2TTF=1 make default
@@ -35,8 +35,8 @@ dist/ttf/%.ttf: dist/bdf/%.bdf Makefile
 	$(BITMAPFONT2TTF) $(BITMAPFONT2TTF_OPTIONS) $< $@.tmp.ttf
 	mv $@.tmp.ttf $@
 
-web/ttf/%.ttf: dist/ttf/%.ttf Makefile
-	mkdir -p web/ttf || true
+docs/ttf/%.ttf: dist/ttf/%.ttf Makefile
+	mkdir -p docs/ttf || true
 	cp $< $@.tmp.ttf
 	mv $@.tmp.ttf $@
 
