@@ -5,12 +5,13 @@ SIZE 12 165 72
 STARTPROPERTIES
 FONT_ASCENT 8
 FONT_DESCENT 4
-SPACING "m"
+SPACING "M"
 FOUNDRY "dse"
-FAMILY_NAME "TractorFeedSerif"
-WEIGHT_NAME "medium"
-SLANT "r"
-SETWIDTH_NAME "condensed"
+FAMILY_NAME "Tractor Feed Serif"
+WEIGHT_NAME "Medium"
+FULL_NAME "Tractor Feed Serif Condensed"
+SLANT "R"
+SETWIDTH_NAME "Condensed"
 ENDPROPERTIES
 INCLUDE TractorFeedSerif.chars.txt
 # source: old printouts haha
