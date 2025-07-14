@@ -8,4 +8,4 @@ output.
 
 ## License
 
-[LICENSE.md](SIL OFL 1.1)
+[SIL OFL 1.1](LICENSE.md)
