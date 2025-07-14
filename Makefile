@@ -6,7 +6,7 @@ SRC_FONTS  = \
              src/bitmap/TractorFeedSans-SmCn.font.txt \
              src/bitmap/TractorFeedSans-Regular.font.txt \
              src/bitmap/TractorFeedSans-Cond.font.txt \
-             src/bitmap/TractorFeedSerif-SmCn.fon.txt \
+             src/bitmap/TractorFeedSerif-SmCn.font.txt \
              src/bitmap/TractorFeedSerif-Regular.font.txt \
              src/bitmap/TractorFeedSerif-Cond.font.txt
 BDFS       = $(patsubst src/bitmap/%.font.txt,dist/bdf/%.bdf,$(SRC_FONTS))
