@@ -1,14 +1,14 @@
 TARGETS = $(BDFS) $(TTFS) $(WEBSITE_TTFS)
 
-DEPS       = src/bitmap/la120.chars.txt \
-             src/bitmap/la100.chars.txt
+DEPS       = src/bitmap/TractorFeedSans.chars.txt \
+             src/bitmap/TractorFeedSerif.chars.txt
 SRC_FONTS  = \
-             src/bitmap/la120.font.txt \
-             src/bitmap/la120-10cpi.font.txt \
-             src/bitmap/la120-16point5cpi.font.txt \
-             src/bitmap/la100.font.txt \
-             src/bitmap/la100-10cpi.font.txt \
-             src/bitmap/la100-16point5cpi.font.txt
+             src/bitmap/TractorFeedSans-SmCn.font.txt \
+             src/bitmap/TractorFeedSans-Regular.font.txt \
+             src/bitmap/TractorFeedSans-Cond.font.txt \
+             src/bitmap/TractorFeedSerif-SmCn.fon.txt \
+             src/bitmap/TractorFeedSerif-Regular.font.txt \
+             src/bitmap/TractorFeedSerif-Cond.font.txt
 BDFS       = $(patsubst src/bitmap/%.font.txt,dist/bdf/%.bdf,$(SRC_FONTS))
 TTFS       = $(patsubst src/bitmap/%.font.txt,dist/ttf/%.ttf,$(SRC_FONTS))
 WEBSITE_TTFS = $(patsubst src/bitmap/%.font.txt,public/ttf/%.ttf,$(SRC_FONTS))

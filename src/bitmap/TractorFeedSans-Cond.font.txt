@@ -1,4 +1,4 @@
-FONT la120-16poin5cpi
+FONT TractorFeedSans-Cond
 FONTBOUNDINGBOX 10 8 0 -1
 DWIDTH 10 0
 SIZE 12 165 72
@@ -7,9 +7,10 @@ FONT_ASCENT 8
 FONT_DESCENT 4
 SPACING "m"
 FOUNDRY "dse"
-FAMILY_NAME "dec-la120"
+FAMILY_NAME "TractorFeedSans"
 WEIGHT_NAME "medium"
 SLANT "r"
+SETWIDTH_NAME "condensed"
 ENDPROPERTIES
-INCLUDE la120.chars.txt
+INCLUDE TractorFeedSans.chars.txt
 # https://vt100.net/dec/la120ug4.pdf

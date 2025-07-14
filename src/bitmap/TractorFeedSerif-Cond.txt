@@ -1,15 +1,16 @@
-FONT la100
+FONT TractorFeedSerif-Cond
 FONTBOUNDINGBOX 10 9 0 -2
 DWIDTH 10 0
-SIZE 12 120 72
+SIZE 12 165 72
 STARTPROPERTIES
 FONT_ASCENT 8
 FONT_DESCENT 4
 SPACING "m"
 FOUNDRY "dse"
-FAMILY_NAME "dec-la100"
+FAMILY_NAME "TractorFeedSerif"
 WEIGHT_NAME "medium"
 SLANT "r"
+SETWIDTH_NAME "condensed"
 ENDPROPERTIES
-INCLUDE la100.chars.txt
+INCLUDE TractorFeedSerif.chars.txt
 # source: old printouts haha
