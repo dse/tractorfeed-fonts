@@ -1,10 +1,10 @@
 # Tractor Feed Fonts
 
-Tractor Feed 120 is a typeface family emulating DEC LA120 printer
-output, the world's best printer dot-matrix font.
+**Tractor Feed Sans** is based on draft-mode DEC LA120 output.  It
+looks more like a typical dot matrix printer font.
 
-Tractor Feed 100 is a typeface family emulating DEC LA100 printer
-output.
+**Tractor Feed Serif** is based on draft-mode DEC LA100 and DEC LA210
+output.  It's the best dot matrix printer font ever.
 
 ## License
 
