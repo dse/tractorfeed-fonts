@@ -66,7 +66,7 @@ unversionedzip: FORCE
 web: $(ZIP_FILE) unversionedzip FORCE
 	rsync -av dist/ public/dist/
 
-publish1:
-	rsync -av dist/ttf/ dse@webonastick.com:/www/webonastick.com/htdocs/demos/tractorfeed/fonts
+publish:
+	ssh dse@webonastick.com 'cd git/dse.d/fonts.d/tractorfeed-fonts && git pull'
 
 .PHONY: FORCE
