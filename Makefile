@@ -52,6 +52,7 @@ _zip: FORCE
 		-s '#^ttf#TractorFeed-$(VERSION)#' \
 		-s '#^bdf#TractorFeed-$(VERSION)#' \
 		ttf bdf
+	cp dist/TractorFeed-$(VERSION).zip dist/TractorFeed.zip
 
 publish1:
 	rsync -av dist/ttf/ dse@webonastick.com:/www/webonastick.com/htdocs/demos/tractorfeed/fonts
