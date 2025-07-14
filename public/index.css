@@ -1,15 +1,16 @@
-@font-face { src: url("ttf/la100.ttf"); font-family: "DEC LA100"; font-weight: normal; font-style: normal; }
-@font-face { src: url("ttf/la120.ttf"); font-family: "DEC LA120"; font-weight: normal; font-style: normal; }
-@font-face { src: url("ttf/la100-10cpi.ttf"); font-family: "DEC LA100 10CPI"; font-weight: normal; font-style: normal; }
-@font-face { src: url("ttf/la120-10cpi.ttf"); font-family: "DEC LA120 10CPI"; font-weight: normal; font-style: normal; }
-@font-face { src: url("ttf/la100-16point5cpi.ttf"); font-family: "DEC LA100 16.5CPI"; font-weight: normal; font-style: normal; }
-@font-face { src: url("ttf/la120-16point5cpi.ttf"); font-family: "DEC LA120 16.5CPI"; font-weight: normal; font-style: normal; }
-.LA100 { font-family: "DEC LA100"; }
-.LA120 { font-family: "DEC LA120"; }
-.LA100-10CPI { font-family: "DEC LA100 10CPI"; }
-.LA120-10CPI { font-family: "DEC LA120 10CPI"; }
-.LA100-16POINT5CPI { font-family: "DEC LA100 16.5CPI"; }
-.LA120-16POINT5CPI { font-family: "DEC LA120 16.5CPI"; }
+@font-face { src: url("ttf/TractorFeedSerif-Regular.ttf"); font-family: "TractorFeedSerif-Regular"; font-weight: normal; font-style: normal; }
+@font-face { src: url("ttf/TractorFeedSerif-SmCn.ttf");    font-family: "TractorFeedSerif-SmCn";    font-weight: normal; font-style: normal; }
+@font-face { src: url("ttf/TractorFeedSerif-Cond.ttf");    font-family: "TractorFeedSerif-Cond";    font-weight: normal; font-style: normal; }
+@font-face { src: url("ttf/TractorFeedSans-Regular.ttf");  font-family: "TractorFeedSans-Regular";  font-weight: normal; font-style: normal; }
+@font-face { src: url("ttf/TractorFeedSans-SmCn.ttf");     font-family: "TractorFeedSans-SmCn";     font-weight: normal; font-style: normal; }
+@font-face { src: url("ttf/TractorFeedSans-Cond.ttf");     font-family: "TractorFeedSans-Cond";     font-weight: normal; font-style: normal; }
+
+.TractorFeedSerif-Regular { font-family: "TractorFeedSerif-Regular"; font-weight: normal; font-style: normal; }
+.TractorFeedSerif-SmCn    { font-family: "TractorFeedSerif-SmCn";    font-weight: normal; font-style: normal; }
+.TractorFeedSerif-Cond    { font-family: "TractorFeedSerif-Cond";    font-weight: normal; font-style: normal; }
+.TractorFeedSans-Regular  { font-family: "TractorFeedSans-Regular";  font-weight: normal; font-style: normal; }
+.TractorFeedSans-SmCn     { font-family: "TractorFeedSans-SmCn";     font-weight: normal; font-style: normal; }
+.TractorFeedSans-Cond     { font-family: "TractorFeedSans-Cond";     font-weight: normal; font-style: normal; }
 
 /* barebones reset */
 *, *::before, *::after {
@@ -43,7 +44,7 @@ html, body {
 }
 body {
     padding-top: 1em;
-    font-family: "DEC LA100";
+    font-family: "TractorFeedSerif-SmCn";
     font-size: 24px;
     color: #555;
     line-height: 1;
