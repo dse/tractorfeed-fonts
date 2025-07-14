@@ -1,9 +1,9 @@
-@font-face { src: url("ttf/TractorFeedSerif-Regular.ttf"); font-family: "TractorFeedSerif-Regular"; font-weight: normal; font-style: normal; }
-@font-face { src: url("ttf/TractorFeedSerif-SmCn.ttf");    font-family: "TractorFeedSerif-SmCn";    font-weight: normal; font-style: normal; }
-@font-face { src: url("ttf/TractorFeedSerif-Cond.ttf");    font-family: "TractorFeedSerif-Cond";    font-weight: normal; font-style: normal; }
-@font-face { src: url("ttf/TractorFeedSans-Regular.ttf");  font-family: "TractorFeedSans-Regular";  font-weight: normal; font-style: normal; }
-@font-face { src: url("ttf/TractorFeedSans-SmCn.ttf");     font-family: "TractorFeedSans-SmCn";     font-weight: normal; font-style: normal; }
-@font-face { src: url("ttf/TractorFeedSans-Cond.ttf");     font-family: "TractorFeedSans-Cond";     font-weight: normal; font-style: normal; }
+@font-face { src: url("dist/ttf/TractorFeedSerif-Regular.ttf"); font-family: "TractorFeedSerif-Regular"; font-weight: normal; font-style: normal; }
+@font-face { src: url("dist/ttf/TractorFeedSerif-SmCn.ttf");    font-family: "TractorFeedSerif-SmCn";    font-weight: normal; font-style: normal; }
+@font-face { src: url("dist/ttf/TractorFeedSerif-Cond.ttf");    font-family: "TractorFeedSerif-Cond";    font-weight: normal; font-style: normal; }
+@font-face { src: url("dist/ttf/TractorFeedSans-Regular.ttf");  font-family: "TractorFeedSans-Regular";  font-weight: normal; font-style: normal; }
+@font-face { src: url("dist/ttf/TractorFeedSans-SmCn.ttf");     font-family: "TractorFeedSans-SmCn";     font-weight: normal; font-style: normal; }
+@font-face { src: url("dist/ttf/TractorFeedSans-Cond.ttf");     font-family: "TractorFeedSans-Cond";     font-weight: normal; font-style: normal; }
 
 .TractorFeedSerif-Regular { font-family: "TractorFeedSerif-Regular"; font-weight: normal; font-style: normal; }
 .TractorFeedSerif-SmCn    { font-family: "TractorFeedSerif-SmCn";    font-weight: normal; font-style: normal; }

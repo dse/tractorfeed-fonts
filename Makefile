@@ -14,6 +14,7 @@ SRC_FONTS  = \
 BDFS       = $(patsubst src/bitmap/%.font.txt,dist/bdf/%.bdf,$(SRC_FONTS))
 TTFS       = $(patsubst src/bitmap/%.font.txt,dist/ttf/%.ttf,$(SRC_FONTS))
 WEBSITE_TTFS = $(patsubst src/bitmap/%.font.txt,public/ttf/%.ttf,$(SRC_FONTS))
+FONTS        = $(BDFS) $(TTFS)
 
 # BDFBDF                 = ~/git/dse.d/perl-font-bitmap/bin/bdfbdf
 BDFBDF                 = ~/git/dse.d/perl-font-bdf/bin/bdf2bdf
@@ -21,8 +22,12 @@ BDFBDF_OPTIONS         =
 BITMAPFONT2TTF         = bitmapfont2ttf
 BITMAPFONT2TTF_OPTIONS = --dot-width 1 --dot-height 1 --circular-dots
 
+ZIP_FILE       = dist/zip/TractorFeed-$(VERSION).zip
+UNVER_ZIP_FILE = dist/zip/TractorFeed.zip
+
 default: $(TARGETS)
 website: $(WEBSITE_TTFS)
+zip: $(ZIP_FILE) $(UNVER_ZIP_FILE)
 
 debug:
 	BITMAPFONT2TTF=1 make default
@@ -45,14 +50,21 @@ public/ttf/%.ttf: dist/ttf/%.ttf Makefile
 clean:
 	/bin/rm $(BDFS) $(TTFS) */*.tmp.* >/dev/null 2>/dev/null || true
 
+$(ZIP_FILE): $(FONTS) Makefile _zip
+
 _zip: FORCE
-	cd dist && \
+	cd dist/zip && \
 		bsdtar -c -f "TractorFeed-$(VERSION).zip" \
 		--format zip \
-		-s '#^ttf#TractorFeed-$(VERSION)#' \
-		-s '#^bdf#TractorFeed-$(VERSION)#' \
-		ttf bdf
-	cp dist/TractorFeed-$(VERSION).zip dist/TractorFeed.zip
+		-s '#^\.\./ttf#TractorFeed-$(VERSION)#' \
+		-s '#^\.\./bdf#TractorFeed-$(VERSION)#' \
+		../ttf ../bdf
+
+unversionedzip: FORCE
+	cp $(ZIP_FILE) $(UNVER_ZIP_FILE)
+
+web: $(ZIP_FILE) unversionedzip FORCE
+	rsync -av dist/ public/dist/
 
 publish1:
 	rsync -av dist/ttf/ dse@webonastick.com:/www/webonastick.com/htdocs/demos/tractorfeed/fonts
