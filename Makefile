@@ -1,5 +1,7 @@
 TARGETS = $(BDFS) $(TTFS) $(WEBSITE_TTFS)
 
+VERSION = 0.0.0
+
 DEPS       = src/bitmap/TractorFeedSans.chars.txt \
              src/bitmap/TractorFeedSerif.chars.txt
 SRC_FONTS  = \
@@ -43,5 +45,15 @@ public/ttf/%.ttf: dist/ttf/%.ttf Makefile
 clean:
 	/bin/rm $(BDFS) $(TTFS) */*.tmp.* >/dev/null 2>/dev/null || true
 
+_zip: FORCE
+	cd dist && \
+		bsdtar -c -f "TractorFeed-$(VERSION).zip" \
+		--format zip \
+		-s '#^ttf#TractorFeed-$(VERSION)#' \
+		-s '#^bdf#TractorFeed-$(VERSION)#' \
+		ttf bdf
+
 publish1:
 	rsync -av dist/ttf/ dse@webonastick.com:/www/webonastick.com/htdocs/demos/tractorfeed/fonts
+
+.PHONY: FORCE
