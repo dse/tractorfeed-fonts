@@ -5,12 +5,25 @@
 @font-face { src: url("dist/ttf/TractorFeedSans-SmCn.ttf");     font-family: "TractorFeedSans-SmCn";     font-weight: normal; font-style: normal; }
 @font-face { src: url("dist/ttf/TractorFeedSans-Cond.ttf");     font-family: "TractorFeedSans-Cond";     font-weight: normal; font-style: normal; }
 
+@font-face { src: url("dist/ttf/TractorFeedSerif-Bold.ttf");    font-family: "TractorFeedSerif-Regular"; font-weight: bold; font-style: normal; }
+@font-face { src: url("dist/ttf/TractorFeedSerif-SmCnBd.ttf");  font-family: "TractorFeedSerif-SmCn";    font-weight: bold; font-style: normal; }
+@font-face { src: url("dist/ttf/TractorFeedSerif-CnBd.ttf");    font-family: "TractorFeedSerif-Cond";    font-weight: bold; font-style: normal; }
+@font-face { src: url("dist/ttf/TractorFeedSans-Bold.ttf");     font-family: "TractorFeedSans-Regular";  font-weight: bold; font-style: normal; }
+@font-face { src: url("dist/ttf/TractorFeedSans-SmCnBd.ttf");   font-family: "TractorFeedSans-SmCn";     font-weight: bold; font-style: normal; }
+@font-face { src: url("dist/ttf/TractorFeedSans-CnBd.ttf");     font-family: "TractorFeedSans-Cond";     font-weight: bold; font-style: normal; }
+
 .TractorFeedSerif-Regular { font-family: "TractorFeedSerif-Regular"; font-weight: normal; font-style: normal; }
 .TractorFeedSerif-SmCn    { font-family: "TractorFeedSerif-SmCn";    font-weight: normal; font-style: normal; }
 .TractorFeedSerif-Cond    { font-family: "TractorFeedSerif-Cond";    font-weight: normal; font-style: normal; }
 .TractorFeedSans-Regular  { font-family: "TractorFeedSans-Regular";  font-weight: normal; font-style: normal; }
 .TractorFeedSans-SmCn     { font-family: "TractorFeedSans-SmCn";     font-weight: normal; font-style: normal; }
 .TractorFeedSans-Cond     { font-family: "TractorFeedSans-Cond";     font-weight: normal; font-style: normal; }
+.TractorFeedSerif-Bold    { font-family: "TractorFeedSerif-Regular"; font-weight: bold; font-style: normal; }
+.TractorFeedSerif-SmCnBd  { font-family: "TractorFeedSerif-SmCn";    font-weight: bold; font-style: normal; }
+.TractorFeedSerif-CnBd    { font-family: "TractorFeedSerif-Cond";    font-weight: bold; font-style: normal; }
+.TractorFeedSans-Bold     { font-family: "TractorFeedSans-Regular";  font-weight: bold; font-style: normal; }
+.TractorFeedSans-SmCnBd   { font-family: "TractorFeedSans-SmCn";     font-weight: bold; font-style: normal; }
+.TractorFeedSans-CnBd     { font-family: "TractorFeedSans-Cond";     font-weight: bold; font-style: normal; }
 
 /* barebones reset */
 *, *::before, *::after {
@@ -75,7 +88,7 @@ pre {
 h1, h2, h3, h4, h5, h6 {
     font-family: inherit;
     font-size: inherit;
-    font-weight: inherit;
+    font-weight: bold;
 }
 h1 { color: var(--blue); }
 h2 { color: var(--green); }
@@ -153,4 +166,14 @@ ul > li::before {
                              calc(50% + calc(0.5 * var(--graybar-width))) top,
                              top center;
     }
+}
+
+.blue {
+    color: var(--blue);
+}
+.green {
+    color: var(--green);
+}
+.black {
+    color: var(--black);
 }

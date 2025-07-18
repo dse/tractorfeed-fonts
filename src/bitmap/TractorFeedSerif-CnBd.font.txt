@@ -1,0 +1,17 @@
+FONT "TractorFeedSerif-CondBold"
+FONTBOUNDINGBOX 10 9 0 -2
+DWIDTH 10 0
+SIZE 12 165 72
+STARTPROPERTIES
+FONT_ASCENT 8
+FONT_DESCENT 4
+SPACING "M"
+FOUNDRY "dse"
+FAMILY_NAME "Tractor Feed Serif"
+WEIGHT_NAME "Bold"
+FULL_NAME "Tractor Feed Serif Condensed Bold"
+SLANT "R"
+SETWIDTH_NAME "Condensed"
+ENDPROPERTIES
+INCLUDE "TractorFeedSerif.ds.chars.txt"
+# source: old printouts haha

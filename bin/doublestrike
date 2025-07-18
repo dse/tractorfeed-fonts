@@ -10,11 +10,11 @@ use strict;
 # The main application of this is to assist in creating double-struck
 # versions of dot-matrix printer fonts.
 
-our $RX_PIXEL_LINE  = qr/^\s*(?<delim_start>[|+^])(?<pixels>.*?)(?:(?<delim_end>[|+^])\s*)?$/;
-our $RX_HEX_LINE = qr/^\s*(?<hex>[[:xdigit:]]+)(?:$|\s)/i;
-our $FONT_BB_LINE = qr/^\s*fontboundingbox\s+(-?\d+)\s+(-?\d+)\s+(-?\d+)\s+(-?\d+)\s*$/i;
-our $CHAR_BB_LINE = qr/^\s*bbx\s+(-?\d+)\s+(-?\d+)\s+(-?\d+)\s+(-?\d+)\s*$/i;
-our $BITMAP_START_LINE = qr/^\s*bitmap\s*$/i;
+our $RX_PIXEL_LINE       = qr/^\s*(?<delim_start>[|+^])(?<pixels>.*?)(?:(?<delim_end>[|+^])\s*)?$/;
+our $RX_HEX_LINE         = qr/^\s*(?<hex>[[:xdigit:]]+)(?:$|\s)/i;
+our $FONT_BB_LINE        = qr/^\s*fontboundingbox\s+(-?\d+)\s+(-?\d+)\s+(-?\d+)\s+(-?\d+)\s*$/i;
+our $CHAR_BB_LINE        = qr/^\s*bbx\s+(-?\d+)\s+(-?\d+)\s+(-?\d+)\s+(-?\d+)\s*$/i;
+our $BITMAP_START_LINE   = qr/^\s*bitmap\s*$/i;
 
 our $FONT_WEIGHT_LINE    = qr/^\s* weight_name \s+\"? (?<weight_name>.*?) \"?\s*$/ix;
 our $FONT_FULL_NAME_LINE = qr/^\s* full_name   \s+\"? (?<full_name>.*?)   \"?\s*$/ix;
