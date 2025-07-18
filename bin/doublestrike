@@ -1,0 +1,191 @@
+#!/usr/bin/env perl
+use warnings;
+use strict;
+
+# bdf-double-strike - a utility that takes one BDF as standard input
+# and writes one BDF to standard output.  Bitmap data is
+# "double-struck", i.e., OR'ed with itself shifted right one pixel, up
+# to the character (or font) bounding box width.
+#
+# The main application of this is to assist in creating double-struck
+# versions of dot-matrix printer fonts.
+
+our $RX_PIXEL_LINE  = qr/^\s*(?<delim_start>[|+^])(?<pixels>.*?)(?:(?<delim_end>[|+^])\s*)?$/;
+our $RX_HEX_LINE = qr/^\s*(?<hex>[[:xdigit:]]+)(?:$|\s)/i;
+our $FONT_BB_LINE = qr/^\s*fontboundingbox\s+(-?\d+)\s+(-?\d+)\s+(-?\d+)\s+(-?\d+)\s*$/i;
+our $CHAR_BB_LINE = qr/^\s*bbx\s+(-?\d+)\s+(-?\d+)\s+(-?\d+)\s+(-?\d+)\s*$/i;
+our $BITMAP_START_LINE = qr/^\s*bitmap\s*$/i;
+
+our $FONT_WEIGHT_LINE    = qr/^\s* weight_name \s+\"? (?<weight_name>.*?) \"?\s*$/ix;
+our $FONT_FULL_NAME_LINE = qr/^\s* full_name   \s+\"? (?<full_name>.*?)   \"?\s*$/ix;
+our $FONT_FONT_NAME_LINE = qr/^\s* font        \s+\"? (?<font_name>.*?)   \"?\s*$/ix;
+our $INCLUDE_LINE        = qr/^\s* include     \s+\"? (?<filename>.*?)    \"?\s*$/ix;
+
+our $font_bb_x;
+our $font_bb_y;
+our $font_bb_x_off;
+our $font_bb_y_off;
+
+our $char_bb_x;
+our $char_bb_y;
+our $char_bb_x_off;
+our $char_bb_y_off;
+
+our $is_bitmap;
+
+# read BDF data and modify hex data up to ENDFONT.
+while (<>) {
+    s{\R\z}{};
+    if (/${INCLUDE_LINE}/) {
+        my $filename = $+{filename};
+        $filename =~ s{\.chars\.txt}{\.ds\.chars\.txt};
+        print("INCLUDE \"${filename}\"\n");
+        next;
+    }
+    if (/${FONT_WEIGHT_LINE}/) {
+        print("WEIGHT_NAME \"Bold\"\n");
+        next;
+    }
+    if (/${FONT_FULL_NAME_LINE}/) {
+        my $full_name = $+{full_name};
+        $full_name .= " Bold";
+        print("FULL_NAME \"${full_name}\"\n");
+        next;
+    }
+    if (/${FONT_FONT_NAME_LINE}/) {
+        my $font_name = $+{font_name};
+        if ($font_name =~ /-/) {
+            $font_name .= "Bold";
+        } else {
+            $font_name .= "-Bold";
+        }
+        print("FONT \"${font_name}\"\n");
+        next;
+    }
+    if (/${FONT_BB_LINE}/) {
+        ($font_bb_x, $font_bb_y, $font_bb_x_off, $font_bb_y_off) = ($1, $2, $3, $4);
+    } elsif (/${CHAR_BB_LINE}/) {
+        ($char_bb_x, $char_bb_y, $char_bb_x_off, $char_bb_y_off) = ($1, $2, $3, $4);
+    } elsif (/${RX_PIXEL_LINE}/) {
+        $_ = double_strike_pixel_bitmap_line($+{pixels}, $+{delim_start}, $+{delim_end});
+    } elsif (/${BITMAP_START_LINE}/) {
+        $is_bitmap = 1;
+        print("$_\n");
+        while (<>) {
+            if (/^\s*(?:endchar|startchar|endfont)(?:\s*$|\s+)/i) {
+                last;
+            }
+            if (/${RX_PIXEL_LINE}/) {
+                $_ = double_strike_pixel_bitmap_line($+{pixels}, $+{delim_start}, $+{delim_end});
+            }
+            if (/${RX_HEX_LINE}/) {
+                $_ = double_strike_hex_bitmap_line($+{hex});
+            }
+        }
+    }
+    if (defined $_) {
+        print("$_\n");
+    } else {
+        last;
+    }
+}
+
+sub double_strike_hex_bitmap_line {
+    my $hex = shift;
+    my $data = pack('H*', $hex);
+    my $bin = unpack('B*', $data);
+    $bin = double_strike_bin($bin);
+    $data = pack('B*', $data);
+    $hex = unpack('H*', $data);
+    return $hex;
+}
+
+sub double_strike_pixel_bitmap_line {
+    my $bin = shift;
+    my $delim_start = shift;
+    my $delim_end = shift;
+    $bin =~ s/[\s.]/0/g;
+    $bin =~ s/[^0]/1/g;
+    $bin = double_strike_bin($bin);
+    $bin =~ s{0}{ }g;
+    $bin =~ s{1}{#}g;
+    return $delim_start . $bin . ($delim_end // $delim_start);
+}
+
+sub double_strike_bin {
+    my $bin = shift;
+    my @bin = split(//, $bin);
+    for (my $i = scalar(@bin); $i >= 1; $i -= 1) {
+        next if !$bin[$i - 1];
+        $bin[$i] = 1;
+    }
+    $bin = join('', @bin);
+    my $width = $char_bb_x // $font_bb_x;
+    if (defined $width) {
+        $bin = substr($bin, 0, $width);
+        $bin .= '0' x ($width - length($bin));
+    }
+    return $bin;
+}
+
+
+#     s{\R\z}{};                                    # chop \r\n or \n
+#     if (/^\s*fontboundingbox\s+(?<width>\d+)/i) { # font bounding box
+#         $font_bbx_width = $+{width};
+#     } elsif (/^\s*bbx\s+(?<width>\d+)/i) { # character bounding box
+#         $char_bbx_width = $+{width};
+#     } elsif (/^\s*bitmap(\s*$|\s+)/i) {
+#         print("$_\n");
+#       bitmap_line:
+#         while (<>) {
+#             s{\R\z}{};          # chop \r\n or \n
+#             if (/^\s*(?<hex>(?:[0-9A-Fa-f]{2})+)(\s*$|\s+)/i) {
+#                 $_ = double_strike_hex($_, $char_bbx_width // $font_bbx_width);
+#             } elsif (/^\s*endchar(\s*$|\s+)/i) {
+#                 undef $char_bbx_width;
+#                 last bitmap_line;
+#             } elsif (/^\s*startchar(\s*$|\s+)/i) {
+#                 undef $char_bbx_width;
+#                 last bitmap_line;
+#             } elsif (/^\s*endfont(\s*$|\s+)/i) {
+#                 last bdf_line;
+#             }
+#         } continue {
+#             print("$_\n");
+#         }
+#     } elsif (/^\s*endchar(\s*$|\s+)/i) {
+#         undef $char_bbx_width;
+#     } elsif (/^\s*startchar(\s*$|\s+)/i) {
+#         undef $char_bbx_width;
+#     } elsif (/^\s*endfont(\s*$|\s+)/i) {
+#         last bdf_line;
+#     }
+# } continue {
+#     print("$_\n");
+# }
+
+# # pass through the rest of the data
+# while (<>) {
+#     s{\R\z}{};                  # chop \r\n or \n
+#     print("$_\n");
+# }
+
+# sub double_strike_hex {
+#     my ($hex, $width) = @_;
+#     my $bin = unpack("B*", pack("H*", $hex));
+#     my @bin = split(//, $bin);
+#     my @newbin;
+#     for (my $i = 0; $i < $width && $i < scalar @bin; $i += 1) {
+#         if ($i) {
+#             $newbin[$i] = $bin[$i] | $bin[$i - 1];
+#         } else {
+#             $newbin[$i] = $bin[$i];
+#         }
+#     }
+#     for (my $i = $width; $i < scalar @bin; $i += 1) {
+#         $newbin[$i] = 0;
+#     }
+#     $bin = join('', @newbin);
+#     $hex = unpack("H*", pack("B*", $bin));
+#     return uc($hex) . " >>";
+# }
