@@ -1,0 +1,955 @@
+STARTCHAR U+0020 SPACE
+|          |
+|          |
+|          |
+|          |
+|          |
+|          |
++          +
+|          |
+ENDCHAR
+STARTCHAR U+0021 EXCLAMATION MARK
+|    ##    |
+|    ##    |
+|    ##    |
+|    ##    |
+|    ##    |
+|          |
++    ##    +
+|          |
+ENDCHAR
+STARTCHAR U+0022 QUOTATION MARK
+|   ####   |
+|   ####   |
+|   ####   |
+|          |
+|          |
+|          |
++          +
+|          |
+ENDCHAR
+STARTCHAR U+0023 NUMBER SIGN
+|   ####   |
+|   ####   |
+| ######## |
+|   ####   |
+| ######## |
+|   ####   |
++   ####   +
+|          |
+ENDCHAR
+STARTCHAR U+0024 DOLLAR SIGN
+|    ##    |
+|  ######  |
+| ## ##    |
+|  ######  |
+|    ## ## |
+|  ######  |
++    ##    +
+|          |
+ENDCHAR
+STARTCHAR U+0025 PERCENT SIGN
+| ####  ## |
+| #### ##  |
+|     ##   |
+|    ##    |
+|   ##     |
+|  ## #### |
++ ##  #### +
+|          |
+ENDCHAR
+STARTCHAR U+0026 AMPERSAND
+|   ####   |
+|  ##  ##  |
+|   ####   |
+|    ##    |
+|   ###### |
+|  ##  ##  |
++   ###### +
+|          |
+ENDCHAR
+STARTCHAR U+0027 APOSTROPHE
+|     ##   |
+|    ##    |
+|   ##     |
+|          |
+|          |
+|          |
++          +
+|          |
+ENDCHAR
+STARTCHAR U+0028 LEFT PARENTHESIS
+|      ##  |
+|     ##   |
+|    ##    |
+|    ##    |
+|    ##    |
+|     ##   |
++      ##  +
+|          |
+ENDCHAR
+STARTCHAR U+0029 RIGHT PARENTHESIS
+|  ##      |
+|   ##     |
+|    ##    |
+|    ##    |
+|    ##    |
+|   ##     |
++  ##      +
+|          |
+ENDCHAR
+STARTCHAR U+002A ASTERISK
+|    ##    |
+|    ##    |
+|    ##    |
+| ######## |
+|   ####   |
+|  ##  ##  |
++ ##    ## +
+|          |
+ENDCHAR
+STARTCHAR U+002B PLUS SIGN
+|          |
+|    ##    |
+|    ##    |
+| ######## |
+|    ##    |
+|    ##    |
++          +
+|          |
+ENDCHAR
+STARTCHAR U+002C COMMA
+|          |
+|          |
+|          |
+|   ####   |
++   ####   +
+|    ##    |
+|   ##     |
+ENDCHAR
+STARTCHAR U+002D HYPHEN-MINUS
+|          |
+|          |
+|          |
+| ######## |
+|          |
+|          |
++          +
+|          |
+ENDCHAR
+STARTCHAR U+002E FULL STOP
+|          |
+|          |
+|          |
+|          |
+|          |
+|   ####   |
++   ####   +
+|          |
+ENDCHAR
+STARTCHAR U+002F SOLIDUS
+|       ## |
+|      ##  |
+|     ##   |
+|    ##    |
+|   ##     |
+|  ##      |
++ ##       +
+|          |
+ENDCHAR
+STARTCHAR U+0030 DIGIT ZERO
+|   ####   |
+|  ##  ##  |
+| ##    ## |
+| ##    ## |
+| ##    ## |
+|  ##  ##  |
++   ####   +
+|          |
+ENDCHAR
+STARTCHAR U+0031 DIGIT ONE
+|  ####    |
+|    ##    |
+|    ##    |
+|    ##    |
+|    ##    |
+|    ##    |
++  ######  +
+|          |
+ENDCHAR
+STARTCHAR U+0032 DIGIT TWO
+|  ######  |
+| ##    ## |
+|       ## |
+|      ##  |
+|    ##    |
+|  ##   ## |
++ ######## +
+|          |
+ENDCHAR
+STARTCHAR U+0033 DIGIT THREE
+|  ######  |
+| ##    ## |
+|       ## |
+|    ####  |
+|       ## |
+| ##    ## |
++  ######  +
+|          |
+ENDCHAR
+STARTCHAR U+0034 DIGIT FOUR
+|     ##   |
+|    ####  |
+|   ## ##  |
+|  ##  ##  |
+| ######## |
+|      ##  |
++     #### +
+|          |
+ENDCHAR
+STARTCHAR U+0035 DIGIT FIVE
+| ######## |
+| ##       |
+| ######   |
+|       ## |
+|       ## |
+| ##    ## |
++  ######  +
+|          |
+ENDCHAR
+STARTCHAR U+0036 DIGIT SIX
+|   ####   |
+|  ##      |
+| ##       |
+| ## ####  |
+| ##    ## |
+| ##    ## |
++  ######  +
+|          |
+ENDCHAR
+STARTCHAR U+0037 DIGIT SEVEN
+| ######## |
+| ##    ## |
+|      ##  |
+|     ##   |
+|    ##    |
+|   ##     |
++  ##      +
+|          |
+ENDCHAR
+STARTCHAR U+0038 DIGIT EIGHT
+|  ######  |
+| ##    ## |
+| ##    ## |
+|  ######  |
+| ##    ## |
+| ##    ## |
++  ######  +
+|          |
+ENDCHAR
+STARTCHAR U+0039 DIGIT NINE
+|  ######  |
+| ##    ## |
+| ##    ## |
+|  #### ## |
+|       ## |
+|      ##  |
++   ####   +
+|          |
+ENDCHAR
+STARTCHAR U+003A COLON
+|          |
+|   ####   |
+|   ####   |
+|          |
+|          |
+|   ####   |
++   ####   |
+|          |
+ENDCHAR
+STARTCHAR U+003B SEMICOLON
+|          |
+|   ####   |
+|   ####   |
+|          |
+|          |
+|   ####   |
++   ####   +
+|    ##    |
+|   ##     |
+ENDCHAR
+STARTCHAR U+003C LESS-THAN SIGN
+|       ## |
+|     ##   |
+|   ##     |
+| ##       |
+|   ##     |
+|     ##   |
++       ## |
+|          |
+ENDCHAR
+STARTCHAR U+003D EQUALS SIGN
+|          |
+|          |
+| ######## |
+|          |
+| ######## |
+|          |
++          |
+|          |
+ENDCHAR
+STARTCHAR U+003E GREATER-THAN SIGN
+| ##       |
+|   ##     |
+|     ##   |
+|       ## |
+|     ##   |
+|   ##     |
++ ##       |
+|          |
+ENDCHAR
+STARTCHAR U+003F QUESTION MARK
+|  ######  |
+| ##    ## |
+|      ##  |
+|    ##    |
+|    ##    |
+|          |
++    ##    |
+|          |
+ENDCHAR
+STARTCHAR U+0040 COMMERCIAL AT
+|  ######  |
+| ##    ## |
+| ##  #### |
+| ## ## ## |
+| ## ####  |
+| ##       |
++  ######  |
+|          |
+ENDCHAR
+STARTCHAR U+0041 LATIN CAPITAL LETTER A
+|    ##    |
+|   ####   |
+|  ##  ##  |
+| ##    ## |
+| ######## |
+| ##    ## |
++ ##    ## |
+|          |
+ENDCHAR
+STARTCHAR U+0042 LATIN CAPITAL LETTER B
+| ######   |
+|  ##   ## |
+|  ##   ## |
+|  ######  |
+|  ##   ## |
+|  ##   ## |
++ ######   |
+|          |
+ENDCHAR
+STARTCHAR U+0043 LATIN CAPITAL LETTER C
+|  ######  |
+| ##    ## |
+| ##       |
+| ##       |
+| ##       |
+| ##    ## |
++  ######  |
+|          |
+ENDCHAR
+STARTCHAR U+0044 LATIN CAPITAL LETTER D
+| ######   |
+|  ##   ## |
+|  ##   ## |
+|  ##   ## |
+|  ##   ## |
+|  ##   ## |
++ ######   |
+|          |
+ENDCHAR
+STARTCHAR U+0045 LATIN CAPITAL LETTER E
+| ######## |
+|  ##   ## |
+|  ##      |
+|  ######  |
+|  ##      |
+|  ##   ## |
++ ######## |
+|          |
+ENDCHAR
+STARTCHAR U+0046 LATIN CAPITAL LETTER F
+| ######## |
+|  ##   ## |
+|  ##      |
+|  ######  |
+|  ##      |
+|  ##      |
++ ######   |
+|          |
+ENDCHAR
+STARTCHAR U+0047 LATIN CAPITAL LETTER G
+|  ######  |
+| ##    ## |
+| ##       |
+| ##  #### |
+| ##    ## |
+| ##    ## |
++   ###### |
+|          |
+ENDCHAR
+STARTCHAR U+0048 LATIN CAPITAL LETTER H
+| ##    ## |
+| ##    ## |
+| ##    ## |
+| ######## |
+| ##    ## |
+| ##    ## |
++ ##    ## |
+|          |
+ENDCHAR
+STARTCHAR U+0049 LATIN CAPITAL LETTER I
+|  ######  |
+|    ##    |
+|    ##    |
+|    ##    |
+|    ##    |
+|    ##    |
++  ######  |
+|          |
+ENDCHAR
+STARTCHAR U+004A LATIN CAPITAL LETTER J
+|   ###### |
+|      ##  |
+|      ##  |
+|      ##  |
+|      ##  |
+| ##   ##  |
++  ######  |
+|          |
+ENDCHAR
+STARTCHAR U+004B LATIN CAPITAL LETTER K
+| ##    ## |
+| ##   ##  |
+| ##  ##   |
+| ####     |
+| ##  ##   |
+| ##   ##  |
++ ##    ## |
+|          |
+ENDCHAR
+STARTCHAR U+004C LATIN CAPITAL LETTER L
+| ####     |
+|  ##      |
+|  ##      |
+|  ##      |
+|  ##      |
+|  ##   ## |
++ ######## |
+|          |
+ENDCHAR
+STARTCHAR U+004D LATIN CAPITAL LETTER M
+| ##    ## |
+|  ##  ##  |
+| ######## |
+| ## ## ## |
+| ##    ## |
+| ##    ## |
++ ##    ## |
+|          |
+ENDCHAR
+STARTCHAR U+004E LATIN CAPITAL LETTER N
+| ##    ## |
+|  ##   ## |
+| ####  ## |
+| ## ## ## |
+| ##  #### |
+| ##   ##  |
++ ##    ## |
+|          |
+ENDCHAR
+STARTCHAR U+004F LATIN CAPITAL LETTER O
+|  ######  |
+| ##    ## |
+| ##    ## |
+| ##    ## |
+| ##    ## |
+| ##    ## |
++  ######  |
+|          |
+ENDCHAR
+STARTCHAR U+0050 LATIN CAPITAL LETTER P
+| ######   |
+|  ##   ## |
+|  ##   ## |
+|  ######  |
+|  ##      |
+|  ##      |
++ ####     |
+|          |
+ENDCHAR
+STARTCHAR U+0051 LATIN CAPITAL LETTER Q
+|  ######  |
+| ##    ## |
+| ##    ## |
+| ##    ## |
+| ##  #### |
+| ##   ##  |
++  #### ## +
+|          |
+ENDCHAR
+STARTCHAR U+0052 LATIN CAPITAL LETTER R
+| ######   |
+|  ##   ## |
+|  ##   ## |
+|  ######  |
+|  ## ##   |
+|  ##  ##  |
++ ####  ## |
+|          |
+ENDCHAR
+STARTCHAR U+0053 LATIN CAPITAL LETTER S
+|  ######  |
+| ##    ## |
+| ##       |
+|  ######  |
+|       ## |
+| ##    ## |
++  ######  |
+|          |
+ENDCHAR
+STARTCHAR U+0054 LATIN CAPITAL LETTER T
+| ######## |
+| ## ## ## |
+|    ##    |
+|    ##    |
+|    ##    |
+|    ##    |
++  ######  |
+|          |
+ENDCHAR
+STARTCHAR U+0055 LATIN CAPITAL LETTER U
+| ##    ## |
+| ##    ## |
+| ##    ## |
+| ##    ## |
+| ##    ## |
+| ##    ## |
++  ######  |
+|          |
+ENDCHAR
+STARTCHAR U+0056 LATIN CAPITAL LETTER V
+| ##    ## |
+| ##    ## |
+| ##    ## |
+| ##    ## |
+|  ##  ##  |
+|   ####   |
++    ##    |
+|          |
+ENDCHAR
+STARTCHAR U+0057 LATIN CAPITAL LETTER W
+| ##    ## |
+| ##    ## |
+| ##    ## |
+| ## ## ## |
+| ## ## ## |
+| ######## |
++  ##  ##  |
+|          |
+ENDCHAR
+STARTCHAR U+0058 LATIN CAPITAL LETTER X
+| ##    ## |
+|  ##  ##  |
+|   ####   |
+|    ##    |
+|   ####   |
+|  ##  ##  |
++ ##    ## |
+|          |
+ENDCHAR
+STARTCHAR U+0059 LATIN CAPITAL LETTER Y
+| ##    ## |
+|  ##  ##  |
+|   ####   |
+|    ##    |
+|    ##    |
+|    ##    |
++   ####   |
+|          |
+ENDCHAR
+STARTCHAR U+005A LATIN CAPITAL LETTER Z
+| ######## |
+| ##   ##  |
+|     ##   |
+|    ##    |
+|   ##     |
+|  ##   ## |
++ ######## |
+|          |
+ENDCHAR
+STARTCHAR U+005B LEFT SQUARE BRACKET
+|  ######  |
+|  ##      |
+|  ##      |
+|  ##      |
+|  ##      |
+|  ##      |
++  ######  |
+|          |
+ENDCHAR
+STARTCHAR U+005C REVERSE SOLIDUS
+| ##       |
+|  ##      |
+|   ##     |
+|    ##    |
+|     ##   |
+|      ##  |
++       ## |
+|          |
+ENDCHAR
+STARTCHAR U+005D RIGHT SQUARE BRACKET
+|  ######  |
+|      ##  |
+|      ##  |
+|      ##  |
+|      ##  |
+|      ##  |
++  ######  |
+|          |
+ENDCHAR
+STARTCHAR U+005E CIRCUMFLEX ACCENT
+|  ######  |
+| ##    ## |
+|          |
+|          |
+|          |
+|          |
++          |
+|          |
+ENDCHAR
+STARTCHAR U+005F LOW LINE
+|          |
+|          |
+|          |
+|          |
++          +
+|          |
+| ######## |
+ENDCHAR
+STARTCHAR U+0060 GRAVE ACCENT
+|   ##     |
+|    ##    |
+|     ##   |
+|          |
+|          |
+|          |
++          |
+|          |
+ENDCHAR
+STARTCHAR U+0061 LATIN SMALL LETTER A
+|          |
+|          |
+|  ######  |
+|       ## |
+|   ###### |
+| ##    ## |
++   ###### |
+|          |
+ENDCHAR
+STARTCHAR U+0062 LATIN SMALL LETTER B
+| ##       |
+| ##       |
+| ######   |
+| ##    ## |
+| ##    ## |
+| ##    ## |
++ ######   |
+|          |
+ENDCHAR
+STARTCHAR U+0063 LATIN SMALL LETTER C
+|          |
+|          |
+|  ######  |
+| ##    ## |
+| ##       |
+| ##       |
++  ######  |
+|          |
+ENDCHAR
+STARTCHAR U+0064 LATIN SMALL LETTER D
+|       ## |
+|       ## |
+|   ###### |
+| ##    ## |
+| ##    ## |
+| ##    ## |
++   ###### |
+|          |
+ENDCHAR
+STARTCHAR U+0065 LATIN SMALL LETTER E
+|          |
+|          |
+|  ######  |
+| ##    ## |
+| ######## |
+| ##       |
++  ######  |
+|          |
+ENDCHAR
+STARTCHAR U+0066 LATIN SMALL LETTER F
+|    ####  |
+|   ##  ## |
+| ######   |
+|   ##     |
+|   ##     |
+|   ##     |
++  ####    |
+|          |
+ENDCHAR
+STARTCHAR U+0067 LATIN SMALL LETTER G
+|          |
+|          |
+|  ######  |
+| ##    ## |
+| ##    ## |
+|   ###### |
++       ## |
+|       ## |
+|  ######  |
+ENDCHAR
+STARTCHAR U+0068 LATIN SMALL LETTER H
+| ##       |
+| ##       |
+|  ######  |
+| ##    ## |
+| ##    ## |
+| ##    ## |
++ ##    ## |
+|          |
+ENDCHAR
+STARTCHAR U+0069 LATIN SMALL LETTER I
+|    ##    |
+|          |
+|  ####    |
+|    ##    |
+|    ##    |
+|    ##    |
++  ######  |
+|          |
+ENDCHAR
+STARTCHAR U+006A LATIN SMALL LETTER J
+|      ##  |
+|          |
+|    ####  |
+|      ##  |
+|      ##  |
+|      ##  |
++      ##  |
+|  ##  ##  |
+|   ####   |
+ENDCHAR
+STARTCHAR U+006B LATIN SMALL LETTER K
+| ##       |
+| ##       |
+| ##  ##   |
+| ## ##    |
+| ####     |
+| ##  ##   |
++ ##    ## |
+|          |
+ENDCHAR
+STARTCHAR U+006C LATIN SMALL LETTER L
+|  ####    |
+|    ##    |
+|    ##    |
+|    ##    |
+|    ##    |
+|    ##    |
++  ######  |
+|          |
+ENDCHAR
+STARTCHAR U+006D LATIN SMALL LETTER M
+|          |
+|          |
+| #### ##  |
+| ## ## ## |
+| ## ## ## |
+| ## ## ## |
++ ## ## ## |
+|          |
+ENDCHAR
+STARTCHAR U+006E LATIN SMALL LETTER N
+|          |
+|          |
+| ######   |
+| ##    ## |
+| ##    ## |
+| ##    ## |
++ ##    ## |
+|          |
+ENDCHAR
+STARTCHAR U+006F LATIN SMALL LETTER O
+|          |
+|          |
+|  ######  |
+| ##    ## |
+| ##    ## |
+| ##    ## |
++  ######  |
+|          |
+ENDCHAR
+STARTCHAR U+0070 LATIN SMALL LETTER P
+|          |
+|          |
+|  ######  |
+|  ##   ## |
+|  ##   ## |
+|  ##   ## |
++  ######  |
+|  ##      |
+| ####     |
+ENDCHAR
+STARTCHAR U+0071 LATIN SMALL LETTER Q
+|          |
+|          |
+|  ######  |
+| ##   ##  |
+| ##   ##  |
+| ##   ##  |
++  ######  |
+|      ##  |
+|     #### |
+ENDCHAR
+STARTCHAR U+0072 LATIN SMALL LETTER R
+|          |
+|          |
+| ######   |
+|  ##  ##  |
+|  ##      |
+|  ##      |
++ ####     |
+|          |
+ENDCHAR
+STARTCHAR U+0073 LATIN SMALL LETTER S
+|          |
+|          |
+|  ######  |
+| ##       |
+|  ######  |
+|       ## |
++  ######  |
+|          |
+ENDCHAR
+STARTCHAR U+0074 LATIN SMALL LETTER T
+|   ##     |
+|   ##     |
+| ######   |
+|   ##     |
+|   ##     |
+|   ##  ## |
++    ####  |
+|          |
+ENDCHAR
+STARTCHAR U+0075 LATIN SMALL LETTER U
+|          |
+|          |
+| ##    ## |
+| ##    ## |
+| ##    ## |
+| ##    ## |
++   ###### |
+|          |
+ENDCHAR
+STARTCHAR U+0076 LATIN SMALL LETTER V
+|          |
+|          |
+| ##    ## |
+| ##    ## |
+|  ##  ##  |
+|   ####   |
++    ##    |
+|          |
+ENDCHAR
+STARTCHAR U+0077 LATIN SMALL LETTER W
+|          |
+|          |
+| ##    ## |
+| ##    ## |
+| ## ## ## |
+| ######## |
++  ##  ##  |
+|          |
+ENDCHAR
+STARTCHAR U+0078 LATIN SMALL LETTER X
+|          |
+|          |
+| ##    ## |
+|  ##  ##  |
+|    ##    |
+|  ##  ##  |
++ ##    ## |
+|          |
+ENDCHAR
+STARTCHAR U+0079 LATIN SMALL LETTER Y
+|          |
+|          |
+| ##    ## |
+| ##    ## |
+|  ##  ##  |
+|   ####   |
++    ##    |
+|   ##     |
+| ####     |
+ENDCHAR
+STARTCHAR U+007A LATIN SMALL LETTER Z
+|          |
+|          |
+| ######## |
+| ##   ##  |
+|    ##    |
+|  ##   ## |
++ ######## |
+|          |
+ENDCHAR
+STARTCHAR U+007B LEFT CURLY BRACKET
+|     #### |
+|    ##    |
+|    ##    |
+| ####     |
+|    ##    |
+|    ##    |
++     #### |
+|          |
+ENDCHAR
+STARTCHAR U+007C VERTICAL LINE
+|    ##    |
+|    ##    |
+|    ##    |
+|    ##    |
+|    ##    |
+|    ##    |
++    ##    |
+|    ##    |
+|    ##    |
+ENDCHAR
+STARTCHAR U+007D RIGHT CURLY BRACKET
+| ####     |
+|    ##    |
+|    ##    |
+|     #### |
+|    ##    |
+|    ##    |
++ ####     |
+|          |
+ENDCHAR
+STARTCHAR U+007E TILDE
+|   ##  ## |
+|  ######  |
+| ##  ##   |
+|          |
+|          |
+|          |
++          |
+|          |
+ENDCHAR
