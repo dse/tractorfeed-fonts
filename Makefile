@@ -1,6 +1,6 @@
-default:
-	@for i in $(TARGETS); do echo $$i; done
-	make $(TARGETS)
+default: $(TARGETS) zip web
+
+VERSION = 0.1.0
 
 clean: FORCE
 	/bin/rm src/bitmap/*.ds.*.txt \
@@ -12,7 +12,7 @@ clean: FORCE
 	find . -type f \( -name '*.tmp' -o -name '*.tmp.*' \) -exec rm {} + \
 		>/dev/null 2>/dev/null || true
 
-TARGETS = $(BDFS) $(TTFS) $(WEB_TTFS)
+TARGETS = $(BDFS) $(TTFS)
 
 BDFS = $(patsubst src/bitmap/%.font.txt,dist/bdf/%.bdf,$(SRC_FONTS))
 TTFS = $(patsubst src/bitmap/%.font.txt,dist/ttf/%.ttf,$(SRC_FONTS))
@@ -61,12 +61,26 @@ dist/ttf/%.ttf: dist/bdf/%.bdf $(SRC_BITMAPS) Makefile
 	$(BITMAPFONT2TTF) $(BITMAPFONT2TTF_OPTIONS) $< $@.tmp.ttf
 	mv $@.tmp.ttf $@
 
-WEB_BDFS = $(patsubst src/bitmap/%.font.txt,public/dist/bdf/%.bdf,$(SRC_FONTS))
-WEB_TTFS = $(patsubst src/bitmap/%.font.txt,public/dist/ttf/%.ttf,$(SRC_FONTS))
+ZIP_FILE       = dist/zip/TractorFeed-$(VERSION).zip
+UNVER_ZIP_FILE = dist/zip/TractorFeed.zip
 
-public/dist/bdf/%.bdf: dist/bdf/%.bdf Makefile
-	cp "$<" "$@"
-public/dist/ttf/%.ttf: dist/ttf/%.ttf Makefile
-	cp "$<" "$@"
+zip: $(ZIP_FILE) $(UNVER_ZIP_FILE)
+
+$(ZIP_FILE): $(TTFS) $(BDFS)
+	cd dist/zip && \
+		bsdtar -c -f "TractorFeed-$(VERSION).zip" \
+		--format zip \
+		-s '#^\.\./ttf#TractorFeed-$(VERSION)#' \
+		-s '#^\.\./bdf#TractorFeed-$(VERSION)#' \
+		../ttf ../bdf
+
+$(UNVER_ZIP_FILE): $(ZIP_FILE)
+	cp $(ZIP_FILE) $(UNVER_ZIP_FILE)
+
+web: $(ZIP_FILE) $(UNVER_ZIP_FILE) $(BDFS) $(TTFS)
+	rsync -av dist/ public/dist/
+
+publish:
+	ssh dse@webonastick.com 'cd git/dse.d/fonts.d/tractorfeed-fonts && git pull'
 
 .PHONY: FORCE
