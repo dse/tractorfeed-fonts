@@ -1,6 +1,6 @@
 default: $(TARGETS) zip web
 
-VERSION = 0.1.0
+VERSION = 0.2.0
 
 clean: FORCE
 	rm -fr tmp/_build || true
