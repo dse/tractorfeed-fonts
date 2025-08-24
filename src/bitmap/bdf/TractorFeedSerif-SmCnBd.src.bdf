@@ -13,5 +13,5 @@ FULL_NAME "Tractor Feed Serif Semicondensed Bold"
 SLANT "R"
 SETWIDTH_NAME "Semicondensed"
 ENDPROPERTIES
-INCLUDE "../data/TractorFeedSerif.doublestrike.data.txt"
+INCLUDE "../../../tmp/_build/src/bitmap/data/TractorFeedSerif.doublestrike.data.txt"
 # source: old printouts haha

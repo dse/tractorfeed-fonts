@@ -13,5 +13,5 @@ FULL_NAME "Tractor Feed Sans Condensed Bold"
 SLANT "R"
 SETWIDTH_NAME "Condensed"
 ENDPROPERTIES
-INCLUDE "../data/TractorFeedSans.doublestrike.data.txt"
+INCLUDE "../../../tmp/_build/src/bitmap/data/TractorFeedSans.doublestrike.data.txt"
 # https://vt100.net/dec/la120ug4.pdf
