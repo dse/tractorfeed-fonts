@@ -14,26 +14,26 @@ clean: FORCE
 
 TARGETS = $(BDFS) $(TTFS)
 
-BDFS = $(patsubst src/bitmap/%.font.txt,dist/bdf/%.bdf,$(SRC_FONTS))
-TTFS = $(patsubst src/bitmap/%.font.txt,dist/ttf/%.ttf,$(SRC_FONTS))
+BDFS = $(patsubst src/bitmap/bdf/%.src.bdf,dist/bdf/%.bdf,$(SRC_FONTS))
+TTFS = $(patsubst src/bitmap/bdf/%.src.bdf,dist/ttf/%.ttf,$(SRC_FONTS))
 
 SRC_BITMAPS_REG	= src/bitmap/TractorFeedSans.chars.txt \
 		  src/bitmap/TractorFeedSerif.chars.txt
 SRC_BITMAPS_DS	= $(patsubst %.chars.txt,%.doublestrike.chars.txt,$(SRC_BITMAPS_REG))
 SRC_BITMAPS	= $(SRC_BITMAPS_REG) $(SRC_BITMAPS_DS)
 
-SRC_FONTS	= src/bitmap/TractorFeedSans-SmCn.font.txt \
-		  src/bitmap/TractorFeedSans-Regular.font.txt \
-		  src/bitmap/TractorFeedSans-Cond.font.txt \
-		  src/bitmap/TractorFeedSerif-SmCn.font.txt \
-		  src/bitmap/TractorFeedSerif-Regular.font.txt \
-		  src/bitmap/TractorFeedSerif-Cond.font.txt \
-		  src/bitmap/TractorFeedSans-SmCnBd.font.txt \
-		  src/bitmap/TractorFeedSans-Bold.font.txt \
-		  src/bitmap/TractorFeedSans-CnBd.font.txt \
-		  src/bitmap/TractorFeedSerif-SmCnBd.font.txt \
-		  src/bitmap/TractorFeedSerif-Bold.font.txt \
-		  src/bitmap/TractorFeedSerif-CnBd.font.txt \
+SRC_FONTS	= src/bitmap/bdf/TractorFeedSans-SmCn.src.bdf \
+		  src/bitmap/bdf/TractorFeedSans-Regular.src.bdf \
+		  src/bitmap/bdf/TractorFeedSans-Cond.src.bdf \
+		  src/bitmap/bdf/TractorFeedSerif-SmCn.src.bdf \
+		  src/bitmap/bdf/TractorFeedSerif-Regular.src.bdf \
+		  src/bitmap/bdf/TractorFeedSerif-Cond.src.bdf \
+		  src/bitmap/bdf/TractorFeedSans-SmCnBd.src.bdf \
+		  src/bitmap/bdf/TractorFeedSans-Bold.src.bdf \
+		  src/bitmap/bdf/TractorFeedSans-CnBd.src.bdf \
+		  src/bitmap/bdf/TractorFeedSerif-SmCnBd.src.bdf \
+		  src/bitmap/bdf/TractorFeedSerif-Bold.src.bdf \
+		  src/bitmap/bdf/TractorFeedSerif-CnBd.src.bdf \
 
 DS_PROG			= bin/doublestrike
 BDFBDF			= ~/git/dse.d/perl-font-bdf/bin/bdf2bdf
@@ -47,11 +47,11 @@ src/bitmap/%.doublestrike.chars.txt: src/bitmap/%.chars.txt Makefile $(DS_PROG)
 	$(DS_PROG) < $< > $@.tmp
 	mv $@.tmp $@
 
-src/bitmap/%.doublestrike.font.txt: src/bitmap/%.font.txt Makefile $(DS_PROG)
+src/bitmap/bdf/%.doublestrike.src.bdf: src/bitmap/bdf/%.src.bdf Makefile $(DS_PROG)
 	$(DS_PROG) < $< > $@.tmp
 	mv $@.tmp $@
 
-dist/bdf/%.bdf: src/bitmap/%.font.txt $(SRC_BITMAPS) Makefile
+dist/bdf/%.bdf: src/bitmap/bdf/%.src.bdf $(SRC_BITMAPS) Makefile
 	mkdir -p dist/bdf || true
 	$(BDFBDF) $(BDFBDF_OPTIONS) $< > $@.tmp.bdf
 	mv $@.tmp.bdf $@
