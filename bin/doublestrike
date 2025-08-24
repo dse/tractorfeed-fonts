@@ -38,7 +38,7 @@ while (<>) {
     s{\R\z}{};
     if (/${INCLUDE_LINE}/) {
         my $filename = $+{filename};
-        $filename =~ s{\.chars\.txt}{\.ds\.chars\.txt};
+        $filename =~ s{\.chars\.txt}{\.doublestrike\.chars\.txt};
         print("INCLUDE \"${filename}\"\n");
         next;
     }
