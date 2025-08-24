@@ -8,7 +8,7 @@ def main():
     parser.add_argument('--sfnt-revision', type=float, metavar='XXX.YZZ', help='XXX = major, Y = minor, ZZ = patch; e.g., "000.902"')
     parser.add_argument('--ps-version', type=str, metavar='VERSION', help='a string containing the actual version number, e.g., "0.9.2", "9.2.0-beta", etc.')
     parser.add_argument('--vendor', type=str, metavar='VENDOR', help='your 4-character (registered) font vendor string')
-    parser.add_argument('--copyright-owner', type=str, metavar='NAME', help='Add copyright/SIL-OFL message using your name')
+    parser.add_argument('--copyright-owner', type=str, metavar='NAME', help='Add copyright/SIL-OFL message using your name', default='Darren Embry')
     args = parser.parse_args()
 
     print("Opening: %s" % args.filename)
