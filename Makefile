@@ -54,10 +54,11 @@ dist/bdf/%.bdf: src/bitmap/bdf/%.src.bdf $(SRC_BITMAPS) Makefile
 	$(BDFBDF) $(BDFBDF_OPTIONS) $< > $@.tmp.bdf
 	mv $@.tmp.bdf $@
 
-dist/ttf/%.ttf: dist/bdf/%.bdf $(SRC_BITMAPS) Makefile
+dist/ttf/%.ttf: dist/bdf/%.bdf $(SRC_BITMAPS) bin/darn Makefile
 	mkdir -p dist/ttf || true
 	$(BITMAPFONT2TTF) $(BITMAPFONT2TTF_OPTIONS) $< $@.tmp.ttf
 	mv $@.tmp.ttf $@
+	bin/darn "$@"
 
 ZIP_FILE       = dist/zip/TractorFeed-$(VERSION).zip
 UNVER_ZIP_FILE = dist/zip/TractorFeed.zip
