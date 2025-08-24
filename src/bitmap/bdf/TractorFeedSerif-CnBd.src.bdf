@@ -13,5 +13,5 @@ FULL_NAME "Tractor Feed Serif Condensed Bold"
 SLANT "R"
 SETWIDTH_NAME "Condensed"
 ENDPROPERTIES
-INCLUDE "../txt/TractorFeedSerif.doublestrike.chars.txt"
+INCLUDE "../data/TractorFeedSerif.doublestrike.data.txt"
 # source: old printouts haha

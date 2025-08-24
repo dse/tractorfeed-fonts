@@ -13,5 +13,5 @@ FULL_NAME "Tractor Feed Sans Bold"
 SLANT "R"
 SETWIDTH_NAME "Normal"
 ENDPROPERTIES
-INCLUDE "../txt/TractorFeedSans.doublestrike.chars.txt"
+INCLUDE "../data/TractorFeedSans.doublestrike.data.txt"
 # https://vt100.net/dec/la120ug4.pdf

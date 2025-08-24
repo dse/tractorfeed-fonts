@@ -17,9 +17,9 @@ TARGETS = $(BDFS) $(TTFS)
 BDFS = $(patsubst src/bitmap/bdf/%.src.bdf,dist/bdf/%.bdf,$(SRC_FONTS))
 TTFS = $(patsubst src/bitmap/bdf/%.src.bdf,dist/ttf/%.ttf,$(SRC_FONTS))
 
-SRC_BITMAPS_REG	= src/bitmap/TractorFeedSans.chars.txt \
-		  src/bitmap/TractorFeedSerif.chars.txt
-SRC_BITMAPS_DS	= $(patsubst %.chars.txt,%.doublestrike.chars.txt,$(SRC_BITMAPS_REG))
+SRC_BITMAPS_REG	= src/bitmap/data/TractorFeedSans.data.txt \
+		  src/bitmap/data/TractorFeedSerif.data.txt
+SRC_BITMAPS_DS	= $(patsubst %.data.txt,%.doublestrike.data.txt,$(SRC_BITMAPS_REG))
 SRC_BITMAPS	= $(SRC_BITMAPS_REG) $(SRC_BITMAPS_DS)
 
 SRC_FONTS	= src/bitmap/bdf/TractorFeedSans-SmCn.src.bdf \
@@ -43,7 +43,7 @@ BITMAPFONT2TTF_OPTIONS	= --dot-width 1 --dot-height 1 --circular-dots
 
 doublestrike: $(SRC_BITMAPS_DS) $(SRC_FONTS_DS) $(DS_PROG) Makefile
 
-src/bitmap/%.doublestrike.chars.txt: src/bitmap/%.chars.txt Makefile $(DS_PROG)
+src/bitmap/data/%.doublestrike.data.txt: src/bitmap/data/%.data.txt Makefile $(DS_PROG)
 	$(DS_PROG) < $< > $@.tmp
 	mv $@.tmp $@
 

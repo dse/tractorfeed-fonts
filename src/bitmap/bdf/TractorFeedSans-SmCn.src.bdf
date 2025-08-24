@@ -13,5 +13,5 @@ FULL_NAME "Tractor Feed Sans Semicondensed"
 SLANT "R"
 SETWIDTH_NAME "Semicondensed"
 ENDPROPERTIES
-INCLUDE "../txt/TractorFeedSans.chars.txt"
+INCLUDE "../data/TractorFeedSans.data.txt"
 # https://vt100.net/dec/la120ug4.pdf
