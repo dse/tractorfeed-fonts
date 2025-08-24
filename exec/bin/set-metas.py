@@ -28,6 +28,7 @@ def main():
 
     if args.ps_version is not None:
         font.version = args.ps_version
+        font.appendSFNTName(1033, "Version", font.version)
 
     print("Writing: %s" % args.filename)
     if args.filename.endswith('.sfd'):
