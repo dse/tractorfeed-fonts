@@ -1,6 +1,11 @@
 default: $(TARGETS) zip web
 
-VERSION = 0.2.0
+#                XXX.YZZ, typically
+SFNT_REVISION := 000.200
+
+VERSION		:= 0.2.0
+VENDOR		:= DARN
+COPYRIGHT_OWNER	:= Darren Embry
 
 clean: FORCE
 	rm -fr tmp/_build || true
@@ -32,7 +37,7 @@ SRC_FONTS	= src/bitmap/bdf/TractorFeedSans-SmCn.src.bdf \
 		  src/bitmap/bdf/TractorFeedSerif-Bold.src.bdf \
 		  src/bitmap/bdf/TractorFeedSerif-CnBd.src.bdf \
 
-DS_PROG			= exec/bin/doublestrike
+DS_PROG			= exec/bin/doublestrike.py
 BDFBDF			= ~/git/dse.d/perl-font-bdf/bin/bdf2bdf
 BDFBDF_OPTIONS		=
 BITMAPFONT2TTF		= bitmapfont2ttf
@@ -54,11 +59,16 @@ dist/bdf/%.bdf: src/bitmap/bdf/%.src.bdf $(SRC_BITMAPS) Makefile
 	$(BDFBDF) $(BDFBDF_OPTIONS) $< > $@.tmp.bdf
 	mv $@.tmp.bdf $@
 
-dist/ttf/%.ttf: dist/bdf/%.bdf $(SRC_BITMAPS) exec/bin/darn Makefile
+dist/ttf/%.ttf: dist/bdf/%.bdf $(SRC_BITMAPS) exec/bin/set-metas.py Makefile
 	mkdir -p dist/ttf || true
 	$(BITMAPFONT2TTF) $(BITMAPFONT2TTF_OPTIONS) $< $@.tmp.ttf
 	mv $@.tmp.ttf $@
-	exec/bin/darn "$@"
+	exec/bin/set-metas.py \
+		--sfnt-revision "$(SFNT_REVISION)" \
+		--ps-version "$(VERSION)" \
+		--vendor "$(VENDOR)" \
+		--copyright-owner "$(COPYRIGHT_OWNER)" \
+		"$@"
 
 ZIP_FILE       = dist/zip/TractorFeed-$(VERSION).zip
 UNVER_ZIP_FILE = dist/zip/TractorFeed.zip
@@ -81,5 +91,6 @@ web: $(ZIP_FILE) $(UNVER_ZIP_FILE) $(BDFS) $(TTFS)
 
 publish:
 	ssh dse@webonastick.com 'cd git/dse.d/fonts.d/tractorfeed-fonts && git pull'
+
 
 .PHONY: FORCE
