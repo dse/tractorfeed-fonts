@@ -1,7 +1,7 @@
-FONT "TractorFeedSans-SmCnBold"
+FONT "TractorFeedSans-Bold"
 FONTBOUNDINGBOX 10 8 0 -1
 DWIDTH 10 0
-SIZE 12 120 72
+SIZE 12 100 72
 STARTPROPERTIES
 FONT_ASCENT 8
 FONT_DESCENT 4
@@ -9,9 +9,9 @@ SPACING "M"
 FOUNDRY "dse"
 FAMILY_NAME "Tractor Feed Sans"
 WEIGHT_NAME "Bold"
-FULL_NAME "Tractor Feed Sans Semicondensed Bold"
+FULL_NAME "Tractor Feed Sans Bold"
 SLANT "R"
-SETWIDTH_NAME "Semicondensed"
+SETWIDTH_NAME "Normal"
 ENDPROPERTIES
-INCLUDE "TractorFeedSans.ds.chars.txt"
+INCLUDE "../txt/TractorFeedSans.doublestrike.chars.txt"
 # https://vt100.net/dec/la120ug4.pdf

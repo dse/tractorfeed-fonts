@@ -13,5 +13,5 @@ FULL_NAME "Tractor Feed Serif Condensed"
 SLANT "R"
 SETWIDTH_NAME "Condensed"
 ENDPROPERTIES
-INCLUDE TractorFeedSerif.chars.txt
+INCLUDE "../txt/TractorFeedSerif.chars.txt"
 # source: old printouts haha

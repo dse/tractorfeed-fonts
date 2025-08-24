@@ -13,5 +13,5 @@ FULL_NAME "Tractor Feed Sans"
 SLANT "R"
 SETWIDTH_NAME "Normal"
 ENDPROPERTIES
-INCLUDE TractorFeedSans.chars.txt
+INCLUDE "../txt/TractorFeedSans.chars.txt"
 # https://vt100.net/dec/la120ug4.pdf

@@ -1,4 +1,4 @@
-FONT "TractorFeedSerif-RegularBold"
+FONT TractorFeedSerif-Regular
 FONTBOUNDINGBOX 10 9 0 -2
 DWIDTH 10 0
 SIZE 12 100 72
@@ -8,10 +8,10 @@ FONT_DESCENT 4
 SPACING "M"
 FOUNDRY "dse"
 FAMILY_NAME "Tractor Feed Serif"
-WEIGHT_NAME "Bold"
-FULL_NAME "Tractor Feed Serif Bold"
+WEIGHT_NAME "Medium"
+FULL_NAME "Tractor Feed Serif"
 SLANT "R"
 SETWIDTH_NAME "Normal"
 ENDPROPERTIES
-INCLUDE "TractorFeedSerif.ds.chars.txt"
+INCLUDE "../txt/TractorFeedSerif.chars.txt"
 # source: old printouts haha
