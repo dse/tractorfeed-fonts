@@ -5,9 +5,7 @@ def main():
     for filename in sys.argv[1:]:
         print("Opening: %s" % filename)
         font = fontforge.open(filename)
-        print(font.os2_vendor)
         font.os2_vendor = "DARN" # it's registered!
-        print(font.os2_vendor)
         print("Writing: %s" % filename)
         if filename.endswith('.sfd'):
             font.save(filename)
