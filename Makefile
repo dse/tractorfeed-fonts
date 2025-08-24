@@ -1,7 +1,7 @@
 default: $(TARGETS) zip web
 
-#                XXX.YZZ, typically
-SFNT_REVISION := 000.200
+#		   XXX.YZZ, typically
+SFNT_REVISION	:= 000.200
 
 VERSION		:= 0.2.0
 VENDOR		:= DARN
