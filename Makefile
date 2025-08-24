@@ -3,10 +3,7 @@ default: $(TARGETS) zip web
 VERSION = 0.1.0
 
 clean: FORCE
-	/bin/rm src/bitmap/*.doublestrike.*.txt \
-		>/dev/null 2>/dev/null || true
-	/bin/rm src/bitmap/*.doublestrike.*.txt \
-		>/dev/null 2>/dev/null || true
+	rm -fr tmp/_build || true
 	/bin/rm dist/bdf/*.bdf dist/ttf/*.ttf \
 		>/dev/null 2>/dev/null || true
 	find . -type f \( -name '*.tmp' -o -name '*.tmp.*' \) -exec rm {} + \
@@ -19,7 +16,7 @@ TTFS = $(patsubst src/bitmap/bdf/%.src.bdf,dist/ttf/%.ttf,$(SRC_FONTS))
 
 SRC_BITMAPS_REG	= src/bitmap/data/TractorFeedSans.data.txt \
 		  src/bitmap/data/TractorFeedSerif.data.txt
-SRC_BITMAPS_DS	= $(patsubst %.data.txt,%.doublestrike.data.txt,$(SRC_BITMAPS_REG))
+SRC_BITMAPS_DS	= $(patsubst src/bitmap/data/%.data.txt,tmp/_build/src/bitmap/data/%.doublestrike.data.txt,$(SRC_BITMAPS_REG))
 SRC_BITMAPS	= $(SRC_BITMAPS_REG) $(SRC_BITMAPS_DS)
 
 SRC_FONTS	= src/bitmap/bdf/TractorFeedSans-SmCn.src.bdf \
@@ -43,13 +40,14 @@ BITMAPFONT2TTF_OPTIONS	= --dot-width 1 --dot-height 1 --circular-dots
 
 doublestrike: $(SRC_BITMAPS_DS) $(SRC_FONTS_DS) $(DS_PROG) Makefile
 
-src/bitmap/data/%.doublestrike.data.txt: src/bitmap/data/%.data.txt Makefile $(DS_PROG)
+tmp/_build/src/bitmap/data/%.doublestrike.data.txt: src/bitmap/data/%.data.txt Makefile $(DS_PROG)
+	mkdir -p tmp/_build/src/bitmap/data
 	$(DS_PROG) < $< > $@.tmp
 	mv $@.tmp $@
 
-src/bitmap/bdf/%.doublestrike.src.bdf: src/bitmap/bdf/%.src.bdf Makefile $(DS_PROG)
-	$(DS_PROG) < $< > $@.tmp
-	mv $@.tmp $@
+#src/bitmap/bdf/%.doublestrike.src.bdf: src/bitmap/bdf/%.src.bdf Makefile $(DS_PROG)
+#	$(DS_PROG) < $< > $@.tmp
+#	mv $@.tmp $@
 
 dist/bdf/%.bdf: src/bitmap/bdf/%.src.bdf $(SRC_BITMAPS) Makefile
 	mkdir -p dist/bdf || true
