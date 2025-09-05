@@ -1,5 +1,16 @@
 default: $(TARGETS) zip web
 
+BDF_SRC			:= src/bitmap/bdf
+SRC_DATA		:= src/bitmap/data
+SRC_DATA_DOUBLESTRIKE	:= tmp/_build/src/bitmap/data
+DIST_TTF		:= dist/ttf
+DIST_BDF		:= dist/bdf
+DIST_ZIP		:= dist/zip
+SUPPORT_BIN		:= exec/bin
+
+DIST_ZIP_TO_DIST_TTF	:= ../ttf
+DIST_ZIP_TO_DIST_BDF	:= ../bdf
+
 #		   XXX.YZZ, typically
 SFNT_REVISION	:= 000.200
 
@@ -9,35 +20,35 @@ COPYRIGHT_OWNER	:= Darren Embry
 
 clean: FORCE
 	rm -fr tmp/_build || true
-	/bin/rm dist/bdf/*.bdf dist/ttf/*.ttf \
+	/bin/rm $(DIST_BDF)/*.bdf $(DIST_TTF)/*.ttf \
 		>/dev/null 2>/dev/null || true
 	find . -type f \( -name '*.tmp' -o -name '*.tmp.*' \) -exec rm {} + \
 		>/dev/null 2>/dev/null || true
 
 TARGETS = $(BDFS) $(TTFS)
 
-BDFS = $(patsubst src/bitmap/bdf/%.src.bdf,dist/bdf/%.bdf,$(SRC_FONTS))
-TTFS = $(patsubst src/bitmap/bdf/%.src.bdf,dist/ttf/%.ttf,$(SRC_FONTS))
+BDFS = $(patsubst $(BDF_SRC)/%.src.bdf,$(DIST_BDF)/%.bdf,$(SRC_FONTS))
+TTFS = $(patsubst $(BDF_SRC)/%.src.bdf,$(DIST_TTF)/%.ttf,$(SRC_FONTS))
 
-SRC_BITMAPS_REG	= src/bitmap/data/TractorFeedSans.data.txt \
-		  src/bitmap/data/TractorFeedSerif.data.txt
-SRC_BITMAPS_DS	= $(patsubst src/bitmap/data/%.data.txt,tmp/_build/src/bitmap/data/%.doublestrike.data.txt,$(SRC_BITMAPS_REG))
+SRC_BITMAPS_REG	= $(SRC_DATA)/TractorFeedSans.data.txt \
+		  $(SRC_DATA)/TractorFeedSerif.data.txt
+SRC_BITMAPS_DS	= $(patsubst $(SRC_DATA)/%.data.txt,$(SRC_DATA_DOUBLESTRIKE)/%.doublestrike.data.txt,$(SRC_BITMAPS_REG))
 SRC_BITMAPS	= $(SRC_BITMAPS_REG) $(SRC_BITMAPS_DS)
 
-SRC_FONTS	= src/bitmap/bdf/TractorFeedSans-SmCn.src.bdf \
-		  src/bitmap/bdf/TractorFeedSans-Regular.src.bdf \
-		  src/bitmap/bdf/TractorFeedSans-Cond.src.bdf \
-		  src/bitmap/bdf/TractorFeedSerif-SmCn.src.bdf \
-		  src/bitmap/bdf/TractorFeedSerif-Regular.src.bdf \
-		  src/bitmap/bdf/TractorFeedSerif-Cond.src.bdf \
-		  src/bitmap/bdf/TractorFeedSans-SmCnBd.src.bdf \
-		  src/bitmap/bdf/TractorFeedSans-Bold.src.bdf \
-		  src/bitmap/bdf/TractorFeedSans-CnBd.src.bdf \
-		  src/bitmap/bdf/TractorFeedSerif-SmCnBd.src.bdf \
-		  src/bitmap/bdf/TractorFeedSerif-Bold.src.bdf \
-		  src/bitmap/bdf/TractorFeedSerif-CnBd.src.bdf \
+SRC_FONTS	= $(BDF_SRC)/TractorFeedSans-SmCn.src.bdf \
+		  $(BDF_SRC)/TractorFeedSans-Regular.src.bdf \
+		  $(BDF_SRC)/TractorFeedSans-Cond.src.bdf \
+		  $(BDF_SRC)/TractorFeedSerif-SmCn.src.bdf \
+		  $(BDF_SRC)/TractorFeedSerif-Regular.src.bdf \
+		  $(BDF_SRC)/TractorFeedSerif-Cond.src.bdf \
+		  $(BDF_SRC)/TractorFeedSans-SmCnBd.src.bdf \
+		  $(BDF_SRC)/TractorFeedSans-Bold.src.bdf \
+		  $(BDF_SRC)/TractorFeedSans-CnBd.src.bdf \
+		  $(BDF_SRC)/TractorFeedSerif-SmCnBd.src.bdf \
+		  $(BDF_SRC)/TractorFeedSerif-Bold.src.bdf \
+		  $(BDF_SRC)/TractorFeedSerif-CnBd.src.bdf \
 
-DS_PROG			= exec/bin/doublestrike.py
+DS_PROG			= $(SUPPORT_BIN)/doublestrike.py
 BDFBDF			= ~/git/dse.d/perl-font-bdf/bin/bdf2bdf
 BDFBDF_OPTIONS		=
 BITMAPFONT2TTF		= bitmapfont2ttf
@@ -45,43 +56,44 @@ BITMAPFONT2TTF_OPTIONS	= --dot-width 1 --dot-height 1 --circular-dots
 
 doublestrike: $(SRC_BITMAPS_DS) $(SRC_FONTS_DS) $(DS_PROG) Makefile
 
-tmp/_build/src/bitmap/data/%.doublestrike.data.txt: src/bitmap/data/%.data.txt Makefile $(DS_PROG)
-	mkdir -p tmp/_build/src/bitmap/data
+$(SRC_DATA_DOUBLESTRIKE)/%.doublestrike.data.txt: $(SRC_DATA)/%.data.txt Makefile $(DS_PROG)
+	mkdir -p $(SRC_DATA_DOUBLESTRIKE)
 	$(DS_PROG) < $< > $@.tmp
 	mv $@.tmp $@
 
-#src/bitmap/bdf/%.doublestrike.src.bdf: src/bitmap/bdf/%.src.bdf Makefile $(DS_PROG)
+#$(BDF_SRC)/%.doublestrike.src.bdf: $(BDF_SRC)/%.src.bdf Makefile $(DS_PROG)
 #	$(DS_PROG) < $< > $@.tmp
 #	mv $@.tmp $@
 
-dist/bdf/%.bdf: src/bitmap/bdf/%.src.bdf $(SRC_BITMAPS) Makefile
-	mkdir -p dist/bdf || true
+$(DIST_BDF)/%.bdf: $(BDF_SRC)/%.src.bdf $(SRC_BITMAPS) Makefile
+	mkdir -p $(DIST_BDF) || true
 	$(BDFBDF) $(BDFBDF_OPTIONS) $< > $@.tmp.bdf
 	mv $@.tmp.bdf $@
 
-dist/ttf/%.ttf: dist/bdf/%.bdf $(SRC_BITMAPS) exec/bin/set-metas.py Makefile
-	mkdir -p dist/ttf || true
+$(DIST_TTF)/%.ttf: $(DIST_BDF)/%.bdf $(SRC_BITMAPS) $(SUPPORT_BIN)/set-metas.py Makefile
+	mkdir -p $(DIST_TTF) || true
 	$(BITMAPFONT2TTF) $(BITMAPFONT2TTF_OPTIONS) $< $@.tmp.ttf
 	mv $@.tmp.ttf $@
-	exec/bin/set-metas.py \
+	$(SUPPORT_BIN)/set-metas.py \
 		--sfnt-revision "$(SFNT_REVISION)" \
 		--ps-version "$(VERSION)" \
 		--vendor "$(VENDOR)" \
 		--copyright-owner "$(COPYRIGHT_OWNER)" \
 		"$@"
 
-ZIP_FILE       = dist/zip/TractorFeed-$(VERSION).zip
-UNVER_ZIP_FILE = dist/zip/TractorFeed.zip
+ZIP_FILE       = $(DIST_ZIP)/TractorFeed-$(VERSION).zip
+UNVER_ZIP_FILE = $(DIST_ZIP)/TractorFeed.zip
 
 zip: $(ZIP_FILE) $(UNVER_ZIP_FILE)
 
 $(ZIP_FILE): $(TTFS) $(BDFS)
-	cd dist/zip && \
+	cd $(DIST_ZIP) && \
 		bsdtar -c -f "TractorFeed-$(VERSION).zip" \
 		--format zip \
 		-s '#^\.\./ttf#TractorFeed-$(VERSION)#' \
 		-s '#^\.\./bdf#TractorFeed-$(VERSION)#' \
-		../ttf ../bdf
+		$(DIST_ZIP_TO_DIST_TTF) \
+		$(DIST_ZIP_TO_DIST_BDF)
 
 $(UNVER_ZIP_FILE): $(ZIP_FILE)
 	cp $(ZIP_FILE) $(UNVER_ZIP_FILE)
