@@ -6,6 +6,7 @@ SFNT_REVISION	:= 000.200
 VERSION		:= 0.2.0
 VENDOR		:= DARN
 COPYRIGHT_OWNER	:= Darren Embry
+COPYRIGHT_EMAIL	:= dsembry@gmail.com
 
 clean: FORCE
 	rm -fr tmp/_build || true
@@ -67,8 +68,8 @@ dist/ttf/%.ttf: dist/bdf/%.bdf $(SRC_BITMAPS) exec/bin/set-metas.py Makefile
 		--sfnt-revision "$(SFNT_REVISION)" \
 		--ps-version "$(VERSION)" \
 		--vendor "$(VENDOR)" \
-		--copyright-owner "$(COPYRIGHT_OWNER)" \
 		"$@"
+	fontofl --owner "$(COPYRIGHT_OWNER)" --email "$(COPYRIGHT_EMAIL)" "$@"
 
 ZIP_FILE       = dist/zip/TractorFeed-$(VERSION).zip
 UNVER_ZIP_FILE = dist/zip/TractorFeed.zip
