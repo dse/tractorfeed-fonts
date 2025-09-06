@@ -51,10 +51,6 @@ tmp/_build/src/bitmap/data/%.doublestrike.data.txt: src/bitmap/data/%.data.txt M
 	$(DS_PROG) < $< > $@.tmp
 	mv $@.tmp $@
 
-#src/bitmap/bdf/%.doublestrike.src.bdf: src/bitmap/bdf/%.src.bdf Makefile $(DS_PROG)
-#	$(DS_PROG) < $< > $@.tmp
-#	mv $@.tmp $@
-
 dist/bdf/%.bdf: src/bitmap/bdf/%.src.bdf $(SRC_BITMAPS) Makefile
 	mkdir -p dist/bdf || true
 	$(BDFBDF) $(BDFBDF_OPTIONS) $< > $@.tmp.bdf
