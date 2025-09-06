@@ -62,7 +62,7 @@ $(SRC_DATA_DOUBLESTRIKE)/%.doublestrike.data.txt: $(SRC_DATA)/%.data.txt Makefil
 	$(DS_PROG) < $< > $@.tmp
 	mv $@.tmp $@
 
-dist/bdf/%.bdf: src/bitmap/bdf/%.src.bdf $(SRC_BITMAPS) Makefile
+$(DIST_BDF)/%.bdf: $(BDF_SRC)/%.src.bdf $(SRC_BITMAPS) Makefile
 	mkdir -p dist/bdf || true
 	$(BDFBDF) $(BDFBDF_OPTIONS) $< > $@.tmp.bdf
 	mv $@.tmp.bdf $@
