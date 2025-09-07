@@ -79,23 +79,23 @@ STARTCHAR U+0027 APOSTROPHE
 |          |
 ENDCHAR
 STARTCHAR U+0028 LEFT PARENTHESIS
-|      #   |
 |     #    |
 |    #     |
+|   #      |
+|   #      |
+|   #      |
 |    #     |
-|    #     |
-|     #    |
-+      #   +
++     #    +
 |          |
 ENDCHAR
 STARTCHAR U+0029 RIGHT PARENTHESIS
-|  #       |
 |   #      |
 |    #     |
+|     #    |
+|     #    |
+|     #    |
 |    #     |
-|    #     |
-|   #      |
-+  #       +
++   #      +
 |          |
 ENDCHAR
 STARTCHAR U+002A ASTERISK
