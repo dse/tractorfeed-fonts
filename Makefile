@@ -67,7 +67,7 @@ $(DIST_BDF)/%.bdf: $(BDF_SRC)/%.src.bdf $(SRC_BITMAPS) Makefile
 	$(BDFBDF) $(BDFBDF_OPTIONS) "$<" > "$@.tmp.bdf"
 	mv "$@.tmp.bdf" "$@"
 
-$(DIST_TTF)/%.ttf: $(DIST_BDF)/%.bdf $(SRC_BITMAPS) $(SUPPORT_BIN)/set-metas.py Makefile
+$(DIST_TTF)/%.ttf: $(DIST_BDF)/%.bdf $(SRC_BITMAPS) Makefile
 	mkdir -p $(DIST_TTF) || true
 	$(BITMAPFONT2TTF) $(BITMAPFONT2TTF_OPTIONS) "$<" "$@.tmp.ttf"
 	setfontmetas	--sfnt-revision "$(SFNT_REVISION)" \
