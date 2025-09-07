@@ -70,11 +70,10 @@ $(DIST_BDF)/%.bdf: $(BDF_SRC)/%.src.bdf $(SRC_BITMAPS) Makefile
 $(DIST_TTF)/%.ttf: $(DIST_BDF)/%.bdf $(SRC_BITMAPS) $(SUPPORT_BIN)/set-metas.py Makefile
 	mkdir -p $(DIST_TTF) || true
 	$(BITMAPFONT2TTF) $(BITMAPFONT2TTF_OPTIONS) "$<" "$@.tmp.ttf"
-	$(SUPPORT_BIN)/set-metas.py \
-		--sfnt-revision "$(SFNT_REVISION)" \
-		--ps-version "$(VERSION)" \
-		--vendor "$(VENDOR)" \
-		"$@.tmp.ttf"
+	setfontmetas	--sfnt-revision "$(SFNT_REVISION)" \
+			--ps-version "$(VERSION)" \
+			--vendor "$(VENDOR)" \
+			"$@.tmp.ttf"
 	fontofl --owner "$(COPYRIGHT_OWNER)" --email "$(COPYRIGHT_EMAIL)" "$@.tmp.ttf"
 	mv "$@.tmp.ttf" "$@"
 
@@ -100,6 +99,5 @@ web: $(ZIP_FILE) $(UNVER_ZIP_FILE) $(BDFS) $(TTFS)
 
 publish:
 	ssh dse@webonastick.com 'cd git/dse.d/fonts.d/tractorfeed-fonts && git pull'
-
 
 .PHONY: FORCE
