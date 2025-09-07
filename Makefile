@@ -14,9 +14,9 @@ DIST_ZIP_TO_DIST_BDF	:= ../bdf
 DIST_ZIP_TO_DIST_SFD	:= ../sfd
 
 #		   XXX.YZZ, typically
-SFNT_REVISION	:= 000.200
+SFNT_REVISION	:= 000.300
 
-VERSION		:= 0.2.0
+VERSION		:= 0.3.0
 VENDOR		:= DARN
 COPYRIGHT_OWNER	:= Darren Embry
 COPYRIGHT_EMAIL	:= dsembry@gmail.com
