@@ -74,7 +74,9 @@ $(DIST_TTF)/%.ttf: $(DIST_BDF)/%.bdf $(SRC_BITMAPS) $(SUPPORT_BIN)/set-metas.py 
 			--ps-version "$(VERSION)" \
 			--vendor "$(VENDOR)" \
 			"$@.tmp.ttf"
-	fontofl --owner "$(COPYRIGHT_OWNER)" --email "$(COPYRIGHT_EMAIL)" "$@.tmp.ttf"
+	setfontofl	--owner "$(COPYRIGHT_OWNER)" \
+			--email "$(COPYRIGHT_EMAIL)" \
+			"$@.tmp.ttf"
 	mv "$@.tmp.ttf" "$@"
 
 ZIP_FILE       = $(DIST_ZIP)/TractorFeed-$(VERSION).zip
