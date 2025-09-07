@@ -59,18 +59,18 @@ doublestrike: $(SRC_BITMAPS_DS) $(SRC_FONTS_DS) $(DS_PROG) Makefile
 
 $(SRC_DATA_DOUBLESTRIKE)/%.doublestrike.data.txt: $(SRC_DATA)/%.data.txt Makefile $(DS_PROG)
 	mkdir -p $(SRC_DATA_DOUBLESTRIKE)
-	$(DS_PROG) < $< > $@.tmp
-	mv $@.tmp $@
+	$(DS_PROG) < $< > "$@.tmp"
+	mv "$@.tmp" "$@"
 
 $(DIST_BDF)/%.bdf: $(BDF_SRC)/%.src.bdf $(SRC_BITMAPS) Makefile
 	mkdir -p dist/bdf || true
-	$(BDFBDF) $(BDFBDF_OPTIONS) $< > $@.tmp.bdf
-	mv $@.tmp.bdf $@
+	$(BDFBDF) $(BDFBDF_OPTIONS) $< > "$@.tmp.bdf"
+	mv "$@.tmp.bdf" "$@"
 
 $(DIST_TTF)/%.ttf: $(DIST_BDF)/%.bdf $(SRC_BITMAPS) $(SUPPORT_BIN)/set-metas.py Makefile
 	mkdir -p $(DIST_TTF) || true
-	$(BITMAPFONT2TTF) $(BITMAPFONT2TTF_OPTIONS) $< $@.tmp.ttf
-	mv $@.tmp.ttf $@
+	$(BITMAPFONT2TTF) $(BITMAPFONT2TTF_OPTIONS) $< "$@.tmp.ttf"
+	mv "$@.tmp.ttf" "$@"
 	$(SUPPORT_BIN)/set-metas.py \
 		--sfnt-revision "$(SFNT_REVISION)" \
 		--ps-version "$(VERSION)" \
