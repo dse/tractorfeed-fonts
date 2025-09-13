@@ -15,7 +15,6 @@ DIST_ZIP_TO_DIST_SFD	:= ../sfd
 
 #		   XXX.YZZ, typically
 SFNT_REVISION	:= 000.300
-
 VERSION		:= 0.3.0
 VENDOR		:= DARN
 COPYRIGHT_OWNER	:= Darren Embry
@@ -53,7 +52,7 @@ SRC_FONTS	= $(BDF_SRC)/TractorFeedSans-SmCn.src.bdf \
 		  $(BDF_SRC)/TractorFeedSerif-CnBd.src.bdf \
 
 DS_PROG			= $(SUPPORT_BIN)/doublestrike.py
-BDFBDF			= ~/git/dse.d/perl-font-bdf/bin/bdf2bdf
+BDFBDF			= ~/git/dse.d/bitmapfont2ttf/bin/bdbdf
 BDFBDF_OPTIONS		=
 BITMAPFONT2TTF		= bitmapfont2ttf
 BITMAPFONT2TTF_OPTIONS	= --dot-width 1 --dot-height 1 --circular-dots
