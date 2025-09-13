@@ -1,5 +1,7 @@
 default: $(TARGETS) zip web
 
+FONT_PACKAGE_NAME		= TractorFeed
+
 BDF_SRC				= src/bitmap/bdf
 SRC_DATA			= src/bitmap/data
 SRC_DATA_DOUBLESTRIKE		= tmp/_build/src/bitmap/data
@@ -93,17 +95,17 @@ $(DIST_TTF)/%.ttf: $(DIST_BDF)/%.bdf $(SRC_BITMAPS) Makefile
 			"$@.tmp.ttf"
 	mv "$@.tmp.ttf" "$@"
 
-ZIP_FILE			= $(DIST_ZIP)/TractorFeed-$(VERSION).zip
-UNVER_ZIP_FILE			= $(DIST_ZIP)/TractorFeed.zip
+ZIP_FILE			= $(DIST_ZIP)/$(FONT_PACKAGE_NAME)-$(VERSION).zip
+UNVER_ZIP_FILE			= $(DIST_ZIP)/$(FONT_PACKAGE_NAME).zip
 
 zip: $(ZIP_FILE) $(UNVER_ZIP_FILE)
 
 $(ZIP_FILE): $(TTFS) $(BDFS)
 	cd $(DIST_ZIP) && \
-		bsdtar -c -f "TractorFeed-$(VERSION).zip" \
+		bsdtar -c -f "$(FONT_PACKAGE_NAME)-$(VERSION).zip" \
 		--format zip \
-		-s '#^\.\./ttf#TractorFeed-$(VERSION)#' \
-		-s '#^\.\./bdf#TractorFeed-$(VERSION)#' \
+		-s '#^\.\./ttf#$(FONT_PACKAGE_NAME)-$(VERSION)#' \
+		-s '#^\.\./bdf#$(FONT_PACKAGE_NAME)-$(VERSION)#' \
 		$(DIST_ZIP_TO_DIST_TTF) \
 		$(DIST_ZIP_TO_DIST_BDF)
 
