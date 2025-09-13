@@ -1,24 +1,24 @@
 default: $(TARGETS) zip web
 
-BDF_SRC			:= src/bitmap/bdf
-SRC_DATA		:= src/bitmap/data
-SRC_DATA_DOUBLESTRIKE	:= tmp/_build/src/bitmap/data
-DIST_TTF		:= dist/ttf
-DIST_BDF		:= dist/bdf
-DIST_SFD		:= dist/sfd
-DIST_ZIP		:= dist/zip
-SUPPORT_BIN		:= exec/bin
+BDF_SRC			= src/bitmap/bdf
+SRC_DATA		= src/bitmap/data
+SRC_DATA_DOUBLESTRIKE	= tmp/_build/src/bitmap/data
+DIST_TTF		= dist/ttf
+DIST_BDF		= dist/bdf
+DIST_SFD		= dist/sfd
+DIST_ZIP		= dist/zip
+SUPPORT_BIN		= exec/bin
 
-DIST_ZIP_TO_DIST_TTF	:= ../ttf
-DIST_ZIP_TO_DIST_BDF	:= ../bdf
-DIST_ZIP_TO_DIST_SFD	:= ../sfd
+DIST_ZIP_TO_DIST_TTF	= ../ttf
+DIST_ZIP_TO_DIST_BDF	= ../bdf
+DIST_ZIP_TO_DIST_SFD	= ../sfd
 
 #		   XXX.YZZ, typically
-SFNT_REVISION	:= 000.300
-VERSION		:= 0.3.0
-VENDOR		:= DARN
-COPYRIGHT_OWNER	:= Darren Embry
-COPYRIGHT_EMAIL	:= dsembry@gmail.com
+SFNT_REVISION	= 000.300
+VERSION		= 0.3.0
+VENDOR		= DARN
+COPYRIGHT_OWNER	= Darren Embry
+COPYRIGHT_EMAIL	= dsembry@gmail.com
 
 clean: FORCE
 	rm -fr tmp/_build || true
@@ -52,7 +52,7 @@ SRC_FONTS	= $(BDF_SRC)/TractorFeedSans-SmCn.src.bdf \
 		  $(BDF_SRC)/TractorFeedSerif-CnBd.src.bdf \
 
 DS_PROG			= $(SUPPORT_BIN)/doublestrike.py
-BDFBDF			= ~/git/dse.d/bitmapfont2ttf/bin/bdbdf
+BDFBDF			= ~/git/dse.d/bitmapfont2ttf/bin/bdfbdf
 BDFBDF_OPTIONS		=
 BITMAPFONT2TTF		= bitmapfont2ttf
 BITMAPFONT2TTF_OPTIONS	= --dot-width 1 --dot-height 1 --circular-dots
