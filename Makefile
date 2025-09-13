@@ -37,7 +37,9 @@ SFDS				= $(patsubst $(BDF_SRC)/%.src.bdf,$(DIST_SFD)/%.sfd,$(SRC_FONTS))
 
 SRC_BITMAPS_REG			= $(SRC_DATA)/TractorFeedSans.data.txt \
 				  $(SRC_DATA)/TractorFeedSerif.data.txt
-SRC_BITMAPS_DS			= $(patsubst $(SRC_DATA)/%.data.txt,$(SRC_DATA_DOUBLESTRIKE)/%.doublestrike.data.txt,$(SRC_BITMAPS_REG))
+SRC_BITMAPS_REG_PAT		= $(SRC_DATA)/%.data.txt
+SRC_BITMAPS_DS_PAT		= $(SRC_DATA_DOUBLESTRIKE)/%.doublestrike.data.txt
+SRC_BITMAPS_DS			= $(patsubst $(SRC_BITMAPS_REG_PAT),$(SRC_BITMAPS_DS_PAT),$(SRC_BITMAPS_REG))
 SRC_BITMAPS			= $(SRC_BITMAPS_REG) $(SRC_BITMAPS_DS)
 
 SRC_FONTS			= $(BDF_SRC)/TractorFeedSans-SmCn.src.bdf \
