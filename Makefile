@@ -35,12 +35,13 @@ BDFS				= $(patsubst $(BDF_SRC)/%.src.bdf,$(DIST_BDF)/%.bdf,$(SRC_FONTS))
 TTFS				= $(patsubst $(BDF_SRC)/%.src.bdf,$(DIST_TTF)/%.ttf,$(SRC_FONTS))
 SFDS				= $(patsubst $(BDF_SRC)/%.src.bdf,$(DIST_SFD)/%.sfd,$(SRC_FONTS))
 
-SRC_BITMAPS_REG			= $(SRC_DATA)/TractorFeedSans.data.txt \
+# source fonts are single strike (which SS means)
+SRC_BITMAPS_SS			= $(SRC_DATA)/TractorFeedSans.data.txt \
 				  $(SRC_DATA)/TractorFeedSerif.data.txt
-SRC_BITMAPS_REG_PAT		= $(SRC_DATA)/%.data.txt
+SRC_BITMAPS_SS_PAT		= $(SRC_DATA)/%.data.txt
 SRC_BITMAPS_DS_PAT		= $(SRC_DATA_DOUBLESTRIKE)/%.doublestrike.data.txt
-SRC_BITMAPS_DS			= $(patsubst $(SRC_BITMAPS_REG_PAT),$(SRC_BITMAPS_DS_PAT),$(SRC_BITMAPS_REG))
-SRC_BITMAPS			= $(SRC_BITMAPS_REG) $(SRC_BITMAPS_DS)
+SRC_BITMAPS_DS			= $(patsubst $(SRC_BITMAPS_SS_PAT),$(SRC_BITMAPS_DS_PAT),$(SRC_BITMAPS_SS))
+SRC_BITMAPS			= $(SRC_BITMAPS_SS) $(SRC_BITMAPS_DS)
 
 SRC_FONTS			= $(BDF_SRC)/TractorFeedSans-SmCn.src.bdf \
 				  $(BDF_SRC)/TractorFeedSans-Regular.src.bdf \
