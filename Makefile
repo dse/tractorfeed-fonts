@@ -36,22 +36,22 @@ TTFS				= $(patsubst $(BDF_SRC)/%.src.bdf,$(DIST_TTF)/%.ttf,$(SRC_FONTS))
 SFDS				= $(patsubst $(BDF_SRC)/%.src.bdf,$(DIST_SFD)/%.sfd,$(SRC_FONTS))
 
 SRC_BITMAPS_REG			= $(SRC_DATA)/TractorFeedSans.data.txt \
-		  $(SRC_DATA)/TractorFeedSerif.data.txt
+				  $(SRC_DATA)/TractorFeedSerif.data.txt
 SRC_BITMAPS_DS			= $(patsubst $(SRC_DATA)/%.data.txt,$(SRC_DATA_DOUBLESTRIKE)/%.doublestrike.data.txt,$(SRC_BITMAPS_REG))
 SRC_BITMAPS			= $(SRC_BITMAPS_REG) $(SRC_BITMAPS_DS)
 
 SRC_FONTS			= $(BDF_SRC)/TractorFeedSans-SmCn.src.bdf \
-		  $(BDF_SRC)/TractorFeedSans-Regular.src.bdf \
-		  $(BDF_SRC)/TractorFeedSans-Cond.src.bdf \
-		  $(BDF_SRC)/TractorFeedSerif-SmCn.src.bdf \
-		  $(BDF_SRC)/TractorFeedSerif-Regular.src.bdf \
-		  $(BDF_SRC)/TractorFeedSerif-Cond.src.bdf \
-		  $(BDF_SRC)/TractorFeedSans-SmCnBd.src.bdf \
-		  $(BDF_SRC)/TractorFeedSans-Bold.src.bdf \
-		  $(BDF_SRC)/TractorFeedSans-CnBd.src.bdf \
-		  $(BDF_SRC)/TractorFeedSerif-SmCnBd.src.bdf \
-		  $(BDF_SRC)/TractorFeedSerif-Bold.src.bdf \
-		  $(BDF_SRC)/TractorFeedSerif-CnBd.src.bdf \
+				  $(BDF_SRC)/TractorFeedSans-Regular.src.bdf \
+				  $(BDF_SRC)/TractorFeedSans-Cond.src.bdf \
+				  $(BDF_SRC)/TractorFeedSerif-SmCn.src.bdf \
+				  $(BDF_SRC)/TractorFeedSerif-Regular.src.bdf \
+				  $(BDF_SRC)/TractorFeedSerif-Cond.src.bdf \
+				  $(BDF_SRC)/TractorFeedSans-SmCnBd.src.bdf \
+				  $(BDF_SRC)/TractorFeedSans-Bold.src.bdf \
+				  $(BDF_SRC)/TractorFeedSans-CnBd.src.bdf \
+				  $(BDF_SRC)/TractorFeedSerif-SmCnBd.src.bdf \
+				  $(BDF_SRC)/TractorFeedSerif-Bold.src.bdf \
+				  $(BDF_SRC)/TractorFeedSerif-CnBd.src.bdf \
 
 DS_PROG				= $(SUPPORT_BIN)/doublestrike.py
 BDFBDF				= ~/git/dse.d/bitmapfont2ttf/bin/bdfbdf
