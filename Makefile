@@ -1,24 +1,24 @@
 default: $(TARGETS) zip web
 
-BDF_SRC			= src/bitmap/bdf
-SRC_DATA		= src/bitmap/data
-SRC_DATA_DOUBLESTRIKE	= tmp/_build/src/bitmap/data
-DIST_TTF		= dist/ttf
-DIST_BDF		= dist/bdf
-DIST_SFD		= dist/sfd
-DIST_ZIP		= dist/zip
-SUPPORT_BIN		= exec/bin
+BDF_SRC				= src/bitmap/bdf
+SRC_DATA			= src/bitmap/data
+SRC_DATA_DOUBLESTRIKE		= tmp/_build/src/bitmap/data
+DIST_TTF			= dist/ttf
+DIST_BDF			= dist/bdf
+DIST_SFD			= dist/sfd
+DIST_ZIP			= dist/zip
+SUPPORT_BIN			= exec/bin
 
-DIST_ZIP_TO_DIST_TTF	= ../ttf
-DIST_ZIP_TO_DIST_BDF	= ../bdf
-DIST_ZIP_TO_DIST_SFD	= ../sfd
+DIST_ZIP_TO_DIST_TTF		= ../ttf
+DIST_ZIP_TO_DIST_BDF		= ../bdf
+DIST_ZIP_TO_DIST_SFD		= ../sfd
 
-#		   XXX.YZZ, typically
-SFNT_REVISION	= 000.300
-VERSION		= 0.3.0
-VENDOR		= DARN
-COPYRIGHT_OWNER	= Darren Embry
-COPYRIGHT_EMAIL	= dsembry@gmail.com
+VENDOR				= DARN
+COPYRIGHT_OWNER			= Darren Embry
+COPYRIGHT_EMAIL			= dsembry@gmail.com
+VERSION				= 0.3.0
+SFNT_REVISION			= 000.300
+#				  XXX.YZZ, typically
 
 clean: FORCE
 	rm -fr tmp/_build || true
@@ -27,18 +27,18 @@ clean: FORCE
 	find . -type f \( -name '*.tmp' -o -name '*.tmp.*' \) -exec rm {} + \
 		>/dev/null 2>/dev/null || true
 
-TARGETS = $(BDFS) $(TTFS) $(SFDS)
+TARGETS				= $(BDFS) $(TTFS) $(SFDS)
 
-BDFS = $(patsubst $(BDF_SRC)/%.src.bdf,$(DIST_BDF)/%.bdf,$(SRC_FONTS))
-TTFS = $(patsubst $(BDF_SRC)/%.src.bdf,$(DIST_TTF)/%.ttf,$(SRC_FONTS))
-SFDS = $(patsubst $(BDF_SRC)/%.src.bdf,$(DIST_SFD)/%.sfd,$(SRC_FONTS))
+BDFS				= $(patsubst $(BDF_SRC)/%.src.bdf,$(DIST_BDF)/%.bdf,$(SRC_FONTS))
+TTFS				= $(patsubst $(BDF_SRC)/%.src.bdf,$(DIST_TTF)/%.ttf,$(SRC_FONTS))
+SFDS				= $(patsubst $(BDF_SRC)/%.src.bdf,$(DIST_SFD)/%.sfd,$(SRC_FONTS))
 
-SRC_BITMAPS_REG	= $(SRC_DATA)/TractorFeedSans.data.txt \
+SRC_BITMAPS_REG			= $(SRC_DATA)/TractorFeedSans.data.txt \
 		  $(SRC_DATA)/TractorFeedSerif.data.txt
-SRC_BITMAPS_DS	= $(patsubst $(SRC_DATA)/%.data.txt,$(SRC_DATA_DOUBLESTRIKE)/%.doublestrike.data.txt,$(SRC_BITMAPS_REG))
-SRC_BITMAPS	= $(SRC_BITMAPS_REG) $(SRC_BITMAPS_DS)
+SRC_BITMAPS_DS			= $(patsubst $(SRC_DATA)/%.data.txt,$(SRC_DATA_DOUBLESTRIKE)/%.doublestrike.data.txt,$(SRC_BITMAPS_REG))
+SRC_BITMAPS			= $(SRC_BITMAPS_REG) $(SRC_BITMAPS_DS)
 
-SRC_FONTS	= $(BDF_SRC)/TractorFeedSans-SmCn.src.bdf \
+SRC_FONTS			= $(BDF_SRC)/TractorFeedSans-SmCn.src.bdf \
 		  $(BDF_SRC)/TractorFeedSans-Regular.src.bdf \
 		  $(BDF_SRC)/TractorFeedSans-Cond.src.bdf \
 		  $(BDF_SRC)/TractorFeedSerif-SmCn.src.bdf \
@@ -51,11 +51,11 @@ SRC_FONTS	= $(BDF_SRC)/TractorFeedSans-SmCn.src.bdf \
 		  $(BDF_SRC)/TractorFeedSerif-Bold.src.bdf \
 		  $(BDF_SRC)/TractorFeedSerif-CnBd.src.bdf \
 
-DS_PROG			= $(SUPPORT_BIN)/doublestrike.py
-BDFBDF			= ~/git/dse.d/bitmapfont2ttf/bin/bdfbdf
-BDFBDF_OPTIONS		=
-BITMAPFONT2TTF		= bitmapfont2ttf
-BITMAPFONT2TTF_OPTIONS	= --dot-width 1 --dot-height 1 --circular-dots
+DS_PROG				= $(SUPPORT_BIN)/doublestrike.py
+BDFBDF				= ~/git/dse.d/bitmapfont2ttf/bin/bdfbdf
+BDFBDF_OPTIONS			=
+BITMAPFONT2TTF			= bitmapfont2ttf
+BITMAPFONT2TTF_OPTIONS		= --dot-width 1 --dot-height 1 --circular-dots
 
 doublestrike: $(SRC_BITMAPS_DS) $(SRC_FONTS_DS) $(DS_PROG) Makefile
 
@@ -93,8 +93,8 @@ $(DIST_TTF)/%.ttf: $(DIST_BDF)/%.bdf $(SRC_BITMAPS) Makefile
 			"$@.tmp.ttf"
 	mv "$@.tmp.ttf" "$@"
 
-ZIP_FILE       = $(DIST_ZIP)/TractorFeed-$(VERSION).zip
-UNVER_ZIP_FILE = $(DIST_ZIP)/TractorFeed.zip
+ZIP_FILE			= $(DIST_ZIP)/TractorFeed-$(VERSION).zip
+UNVER_ZIP_FILE			= $(DIST_ZIP)/TractorFeed.zip
 
 zip: $(ZIP_FILE) $(UNVER_ZIP_FILE)
 
