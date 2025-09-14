@@ -9,7 +9,7 @@ DIST_TTF			= dist/ttf
 DIST_BDF			= dist/bdf
 DIST_SFD			= dist/sfd
 DIST_ZIP			= dist/zip
-SUPPORT_BIN			= exec/bin
+SUPPORT_BIN			= support/bin
 
 DIST_ZIP_TO_DIST_TTF		= ../ttf
 DIST_ZIP_TO_DIST_BDF		= ../bdf
@@ -58,9 +58,9 @@ SRC_FONTS			= $(BDF_SRC)/TractorFeedSans-SmCn.src.bdf \
 
 DS_PROG				= $(SUPPORT_BIN)/doublestrike.py
 BDFBDF				= ~/git/dse.d/bitmapfont2ttf/bin/bdfbdf
-BDFBDF_OPTIONS			=
+BDFBDF_OPTIONS			= --use-properties
 BITMAPFONT2TTF			= bitmapfont2ttf
-BITMAPFONT2TTF_OPTIONS		= --dot-width 1 --dot-height 1 --circular-dots
+BITMAPFONT2TTF_OPTIONS		= --dot-width 1 --dot-height 1 --circular-dots --use-properties
 
 doublestrike: $(SRC_BITMAPS_DS) $(SRC_FONTS_DS) $(DS_PROG) Makefile
 
