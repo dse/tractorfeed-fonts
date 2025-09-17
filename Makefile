@@ -104,6 +104,7 @@ UNVER_ZIP_FILE			= $(DIST_ZIP)/$(FONT_PACKAGE_NAME).zip
 zip: $(ZIP_FILE) $(UNVER_ZIP_FILE)
 
 $(ZIP_FILE): $(TTFS) $(BDFS)
+	mkdir -p $(DIST_ZIP)
 	cd $(DIST_ZIP) && \
 		bsdtar -c -f "$(FONT_PACKAGE_NAME)-$(VERSION).zip" \
 		--format zip \
